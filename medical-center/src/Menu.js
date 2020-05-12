@@ -12,7 +12,7 @@ class Menu extends Component{
                     <li><Link to="/clients">Our Clients</Link></li>
                     <li><Link to="/about">About us</Link></li>
                     <li><Link to="/careers">Careers</Link></li>
-                    <li><Link to="/contact">Contact us</Link></li>
+                    <li><Link to="/api">FAQ</Link></li>
                 </ul>
             </div>
         );
