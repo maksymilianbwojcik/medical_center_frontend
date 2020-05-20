@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import Menu from './Menu';
 import Home from './Home';
 import Faq from './Faq';
+import Footer from './Footer';
 
 class App extends Component{
     render(){
@@ -20,6 +21,7 @@ class App extends Component{
                         </Switch>
                     </div>
                 </div>
+                <Footer/>
             </Router>
         );
     }

@@ -6,7 +6,7 @@ ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('logo')
+  document.getElementById('main-body')
 );
 
 // If you want your app to work offline and load faster, you can change
