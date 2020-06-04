@@ -49,7 +49,7 @@ class Home extends Component{
                     <h2>Plan Budynku</h2>
                     <span className="byline">Integer sit amet pede vel arcu aliquet pretium</span> </div>
 
-                    <img className="current_item" className="image image-full" src="images/Niski%20Parter.png" alt="" width="950" />
+                    <img className="current_item" className="image image-full" src="images/Niski%20Parter.png" alt="" height="auto" width="auto" />
 
                 <div className="content">
                     <p>Aliquam sem leo, vulputate sed, convallis at, ultricies quis, justo. Donec nonummy magna quis risus. Quisque eleifend. Phasellus tempor vehicula justo. Aliquam lacinia metus ut elit. Suspendisse iaculis mauris nec lorem. Vestibulum suscipit volutpat nulla.</p>

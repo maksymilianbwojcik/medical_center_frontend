@@ -7,6 +7,7 @@ import Footer from './Footer';
 import Register from './Register';
 import Login from './Login';
 
+
 class App extends Component{
     constructor(props) {
         super(props);
@@ -34,6 +35,7 @@ class App extends Component{
                     <div id="logo" className="container">
                         <h1><span className="icon icon-ambulance icon-size"></span><Link to="/">Medi<span>Shield</span></Link></h1>
                     </div>
+
                     <div id="wrapper" className="container">
                         <Menu />
                         <Switch>

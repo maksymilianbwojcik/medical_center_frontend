@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from "react-router-dom";
 
 class Login extends Component{
     constructor(props){
@@ -29,11 +30,12 @@ class Login extends Component{
             password: this.state.password,
         }
 
+        console.log(this.state.email);
         const header = new Headers();
         header.append('Access-Control-Allow-Origin', 'no-cors');
 
 
-        fetch("http://localhost:8080/api/login", {
+        fetch("http://localhost:8080/login", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -52,11 +54,15 @@ class Login extends Component{
 
     render(){
         return (
-            <div id="form-login"> 
+            <div id="form-login">
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" name="email" placeholder="Email" value={this.state.email} onChange={this.handleChange} required></input>
-                    <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} required></input>
+                    <label><b>Email</b></label>
+                    <input type="text" name="email" placeholder="Wprowadź email" value={this.state.email} onChange={this.handleChange} required/>
+
+                    <label><b>Hasło</b></label>
+                    <input type="password" name="password" placeholder="Wprowadź hasło" value={this.state.password} onChange={this.handleChange} required/>
                     <button type="submit">Login</button>
+                    <p>Jesteś nowym użytkownikiem? <Link to="/register">Zarejestruj się już teraz!</Link></p>
                 </form>
             </div>
         );
