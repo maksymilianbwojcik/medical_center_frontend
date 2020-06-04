@@ -11,13 +11,13 @@ class App extends Component{
             <Router>
                 <div id="page-wraper">
                     <div id="logo" className="container">
-                        <h1><span className="icon icon-ambulance icon-size"></span><Link to="/home">Medi<span>Shield</span></Link></h1>
+                        <h1><span className="icon icon-ambulance icon-size"/><Link to="/home">Medi<span>Shield</span></Link></h1>
                     </div>
                     <div id="wrapper" className="container">
                         <Menu />
                         <Switch>
-                            <Route path="/" exact component={Home}></Route>
-                            <Faq path="/faq" component={Faq}></Faq>
+                            <Route path="/" exact component={Home}/>
+                            <Faq path="/faq" component={Faq}/>
                         </Switch>
                     </div>
                 </div>
