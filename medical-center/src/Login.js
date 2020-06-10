@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
+import axios from "axios";
 
 class Login extends Component{
     constructor(props){
@@ -31,20 +32,20 @@ class Login extends Component{
         }
 
         console.log(this.state.email);
-        const header = new Headers();
-        header.append('Access-Control-Allow-Origin', 'no-cors');
-
+        console.log(this.state.password);
 
         fetch("http://localhost:8080/login", {
             method: 'POST',
             headers: {
+                'Accept' : 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(this.data.user),
-            header
+            body: JSON.stringify({
+                'username' : this.state.email,
+                'password' : this.state.password
+            }),
         }).then(resp => {
-            if (resp.data.logged_in) //dadaj do tablicy user to pole 
-            this.props.handleSuccessfulAuth(resp.data);
+            console.log("UDALO SIE ZALOGOWAC YAAAY");
         })
         .catch(err =>{
             console.log("login error", err)

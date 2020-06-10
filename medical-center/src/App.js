@@ -6,6 +6,7 @@ import Faq from './Faq';
 import Footer from './Footer';
 import Register from './Register';
 import Login from './Login';
+import Cookies from 'js-cookie'
 
 
 class App extends Component{
@@ -14,6 +15,7 @@ class App extends Component{
 
         this.state = {
             loggedInStatus: "NOT_LOGGED_IN",
+            ciasteczko: Cookies.get('JSESSIONID'),
             user: {}
         }
 
@@ -31,6 +33,7 @@ class App extends Component{
     render(){
         return(
             <Router>
+
                 <div id="page-wraper">
                     <div id="logo" className="container">
                         <h1><span className="icon icon-ambulance icon-size"></span><Link to="/">Medi<span>Shield</span></Link></h1>
@@ -45,6 +48,7 @@ class App extends Component{
                             <Route path="/faq" component={Faq}></Route>
                         </Switch>
                     </div>
+
                 </div>
                 <Footer/>
             </Router>

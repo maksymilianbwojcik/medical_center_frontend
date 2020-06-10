@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 
 class Register extends Component{
     constructor(props){
@@ -22,28 +23,31 @@ class Register extends Component{
     }
 
     handleSubmit(event){
-        this.data = {
-            username: this.state.email,
+        const user = {
+            email: this.state.email,
             password: this.state.password,
             password_confirmation: this.state.password_confirmation
-        }
-
-        console.log(this.state.email);
-        console.log(this.state.password);
-        console.log(this.state.password_confirmation);
+        };
 
         fetch("http://localhost:8080/register", {
             method: 'POST',
 
             headers: {
-                'Content-Type': 'application/json',
-                "Access-Control-Allow-Origin": "POST"
+                'Accept' : "application/json",
+                'Content-Type': 'application/json'
             },
 
-            body: JSON.stringify(this.data)
+            body: JSON.stringify({
+                'username' : user.email,
+                'password' : user.password,
+            })
+
         }).then(resp => {
             console.log("Register response",resp)
-        });
+        })
+            .catch(err => {
+               console.log("registration", err);
+            });
         event.preventDefault();
     }
 

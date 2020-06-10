@@ -8,10 +8,10 @@ class Menu extends Component{
             <div id="menu" className="container">
                 <ul>
                     <li className="current_page_item"><Link to="/">Strona główna</Link></li>
-                    <li><Link to="/services">Services</Link></li>
                     <li><Link to="/clients">Nasi klienci</Link></li>
                     <li><Link to="/about">O nas</Link></li>
                     <li><Link to="/careers">Kariera</Link></li>
+                    <li><Link to="/faq">FAQ</Link></li>
                     <li><Link to="/contact">Kontakt</Link></li>
                     <li><Link to="/login">Login</Link></li>
                 </ul>
