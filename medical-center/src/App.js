@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import {
     Route,
     withRouter,
@@ -9,10 +8,12 @@ import {
 import { getCurrentUser } from './utils/APIUtils';
 import { ACCESS_TOKEN } from './constants';
 
+import NotFound from "./common/NotFound";
+import LoadingIndicator from "./common/LoadingIndicator";
 import Profile from "./Profile";
-import AppHeader from "./component/AppHeader";
-import Login from 'Login';
-import Signup from 'Signup';
+import AppHeader from "./common/AppHeader";
+import Login from "./Login";
+import Signup from './Signup';
 
 
 import { Layout, notification } from 'antd';
@@ -117,4 +118,4 @@ class App extends Component {
     }
 }
 
-export default withRouter(App);
+export default App;
