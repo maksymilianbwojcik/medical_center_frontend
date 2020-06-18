@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
     Route,
     withRouter,
-    Switch
+    Switch,
+    Link
 } from 'react-router-dom';
 
 import { getCurrentUser } from './utils/APIUtils';
@@ -14,7 +15,10 @@ import Profile from "./Profile";
 import AppHeader from "./common/AppHeader";
 import Login from "./Login";
 import Signup from './Signup';
-
+import Menu from "./Menu";
+import Home from "./Home";
+import Faq from "./Faq";
+import Footer from "./Footer";
 
 import { Layout, notification } from 'antd';
 const { Content } = Layout;
@@ -96,24 +100,32 @@ class App extends Component {
             return <LoadingIndicator />
         }
         return (
-            <Layout className="app-container">
+            <Layout className="page-wraper">
+                <div id="logo" className="container">
+                    <h1><span className="icon icon-ambulance icon-size"/><Link to="/">Medi<span>Shield</span></Link></h1>
+                </div>
                 <AppHeader isAuthenticated={this.state.isAuthenticated}
                            currentUser={this.state.currentUser}
                            onLogout={this.handleLogout} />
 
                 <Content className="app-content">
-                    <div className="container">
+                    <div id="wrapper" className="container">
+                        <Menu />
                         <Switch>
                             <Route path="/login" render={(props) => <Login onLogin={this.handleLogin} {...props} />}></Route>
                             <Route path="/signup" component={Signup}></Route>
+                            <Route path="/" exact component={Home}></Route>
+                            <Route path="/faq" component={Faq}></Route>
                             <Route path="/users/:username"
                                    render={(props) => <Profile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} {...props}  />}>
                             </Route>
-                                <Route component={NotFound}></Route>
+                            <Route component={NotFound}></Route>
                         </Switch>
                     </div>
                 </Content>
+                <Footer/>
             </Layout>
+
         );
     }
 }
