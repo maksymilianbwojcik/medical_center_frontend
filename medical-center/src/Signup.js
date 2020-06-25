@@ -60,14 +60,15 @@ class Signup extends Component {
         signup(signupRequest)
             .then(response => {
                 notification.success({
-                    message: 'Polling App',
-                    description: "Thank you! You're successfully registered. Please Login to continue!",
+                    message: 'MediShield',
+                    description: "Dziękujemy! Od teraz jesteś zarejestrowanym użytkownikiem. Proszę się zalogować.",
                 });
+
                 this.props.history.push("/login");
             }).catch(error => {
             notification.error({
-                message: 'Polling App',
-                description: error.message || 'Sorry! Something went wrong. Please try again!'
+                message: 'MediShield',
+                description: error.message || 'Coś poszło nie tak...'
             });
         });
     }
@@ -82,23 +83,25 @@ class Signup extends Component {
 
     render() {
         return (
-            <div className="signup-container">
-                <h1 className="page-title">Sign Up</h1>
-                <div className="signup-content">
-                    <Form onSubmit={this.handleSubmit} className="signup-form">
+            <div id="signup">
+
+                <h1 className="page-title">Rejestracja</h1>
+
+                <div>
+                    <Form onSubmit={this.handleSubmit} id="form-login">
                         <FormItem
-                            label="Full Name"
+                            label="Pełne imię"
                             validateStatus={this.state.name.validateStatus}
                             help={this.state.name.errorMsg}>
                             <Input
                                 size="large"
                                 name="name"
                                 autoComplete="off"
-                                placeholder="Your full name"
+                                placeholder="Wprowadź swoje pełne imię"
                                 value={this.state.name.value}
                                 onChange={(event) => this.handleInputChange(event, this.validateName)} />
                         </FormItem>
-                        <FormItem label="Username"
+                        <FormItem label="Nazwa użytkownika"
                                   hasFeedback
                                   validateStatus={this.state.username.validateStatus}
                                   help={this.state.username.errorMsg}>
@@ -106,7 +109,7 @@ class Signup extends Component {
                                 size="large"
                                 name="username"
                                 autoComplete="off"
-                                placeholder="A unique username"
+                                placeholder="Nazwa użytkownika"
                                 value={this.state.username.value}
                                 onBlur={this.validateUsernameAvailability}
                                 onChange={(event) => this.handleInputChange(event, this.validateUsername)} />
@@ -121,13 +124,13 @@ class Signup extends Component {
                                 name="email"
                                 type="email"
                                 autoComplete="off"
-                                placeholder="Your email"
+                                placeholder="Email"
                                 value={this.state.email.value}
                                 onBlur={this.validateEmailAvailability}
                                 onChange={(event) => this.handleInputChange(event, this.validateEmail)} />
                         </FormItem>
                         <FormItem
-                            label="Password"
+                            label="Hasło"
                             validateStatus={this.state.password.validateStatus}
                             help={this.state.password.errorMsg}>
                             <Input
@@ -135,7 +138,7 @@ class Signup extends Component {
                                 name="password"
                                 type="password"
                                 autoComplete="off"
-                                placeholder="A password between 6 to 20 characters"
+                                placeholder="Hasło od 6 do 20 znaków"
                                 value={this.state.password.value}
                                 onChange={(event) => this.handleInputChange(event, this.validatePassword)} />
                         </FormItem>
@@ -143,11 +146,11 @@ class Signup extends Component {
                             <Button type="primary"
                                     htmlType="submit"
                                     size="large"
-                                    className="signup-form-button"
-                                    disabled={this.isFormInvalid()}>Sign up</Button>
-                            Already registed? <Link to="/login">Login now!</Link>
+                                    disabled={this.isFormInvalid()}>Zarejestruj się</Button>
+                            Posiadasz konto?<Link to="/login">Zaloguj się już teraz</Link>
                         </FormItem>
                     </Form>
+
                 </div>
             </div>
         );

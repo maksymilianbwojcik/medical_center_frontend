@@ -10,9 +10,10 @@ class Login extends Component {
     render() {
         const AntWrappedLoginForm = Form.create()(LoginForm)
         return (
-            <div className="login-container">
+            <div>
                 <h1 className="page-title">Login</h1>
-                <div className="login-content">
+
+                <div>
                     <AntWrappedLoginForm onLogin={this.props.onLogin} />
                 </div>
             </div>
@@ -38,13 +39,13 @@ class LoginForm extends Component {
                     }).catch(error => {
                     if(error.status === 401) {
                         notification.error({
-                            message: 'Polling App',
-                            description: 'Your Username or Password is incorrect. Please try again!'
+                            message: 'MediShield',
+                            description: 'Zła nazwa użytkownika lub hasło!'
                         });
                     } else {
                         notification.error({
-                            message: 'Polling App',
-                            description: error.message || 'Sorry! Something went wrong. Please try again!'
+                            message: 'MediShield',
+                            description: error.message || 'Coś poszło nie tak...'
                         });
                     }
                 });
@@ -55,7 +56,7 @@ class LoginForm extends Component {
     render() {
         const { getFieldDecorator } = this.props.form;
         return (
-            <Form onSubmit={this.handleSubmit} className="login-form">
+            <Form onSubmit={this.handleSubmit} id="form-login">
                 <FormItem>
                     {getFieldDecorator('usernameOrEmail', {
                         rules: [{ required: true, message: 'Please input your username or email!' }],
@@ -67,6 +68,7 @@ class LoginForm extends Component {
                             placeholder="Username or Email" />
                     )}
                 </FormItem>
+
                 <FormItem>
                     {getFieldDecorator('password', {
                         rules: [{ required: true, message: 'Please input your Password!' }],
@@ -79,9 +81,10 @@ class LoginForm extends Component {
                             placeholder="Password"  />
                     )}
                 </FormItem>
+
                 <FormItem>
-                    <Button type="primary" htmlType="submit" size="large" className="login-form-button">Login</Button>
-                    Or <Link to="/signup">register now!</Link>
+                    <Button type="primary" htmlType="submit" size="large">Zaloguj się</Button>
+                    Lub <Link to="/signup">zarejestruj się już teraz!</Link>
                 </FormItem>
             </Form>
         );

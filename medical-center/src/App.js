@@ -15,7 +15,7 @@ import Profile from "./Profile";
 import AppHeader from "./common/AppHeader";
 import Login from "./Login";
 import Signup from './Signup';
-import Menu from "./Menu";
+import CustomMenu from "./Menu";
 import Home from "./Home";
 import Faq from "./Faq";
 import Footer from "./Footer";
@@ -31,6 +31,7 @@ class App extends Component {
             isAuthenticated: false,
             isLoading: false
         }
+
         this.handleLogout = this.handleLogout.bind(this);
         this.loadCurrentUser = this.loadCurrentUser.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
@@ -65,7 +66,8 @@ class App extends Component {
     }
 
     // Handle Logout, Set currentUser and isAuthenticated state which will be passed to other components
-    handleLogout(redirectTo="/", notificationType="success", description="You're successfully logged out.") {
+    handleLogout(notificationType="success", description="You're successfully logged out.") {
+        console.log(ACCESS_TOKEN);
         localStorage.removeItem(ACCESS_TOKEN);
 
         this.setState({
@@ -73,26 +75,20 @@ class App extends Component {
             isAuthenticated: false
         });
 
-        this.props.history.push(redirectTo);
-
         notification[notificationType]({
-            message: 'Polling App',
+            message: 'Medishield',
             description: description,
         });
+        //this.props.history.push('/signup');
     }
 
-    /*
-     This method is called by the Login component after successful login
-     so that we can load the logged-in user details and set the currentUser &
-     isAuthenticated state, which other components will use to render their JSX
-    */
     handleLogin() {
         notification.success({
-            message: 'Polling App',
-            description: "You're successfully logged in.",
+            message: 'Medishied',
+            description: "Udało Ci się zalogować.",
         });
         this.loadCurrentUser();
-        this.props.history.push("/");
+        this.history.push("/");
     }
 
     render() {
@@ -104,23 +100,25 @@ class App extends Component {
                 <div id="logo" className="container">
                     <h1><span className="icon icon-ambulance icon-size"/><Link to="/">Medi<span>Shield</span></Link></h1>
                 </div>
-                <AppHeader isAuthenticated={this.state.isAuthenticated}
-                           currentUser={this.state.currentUser}
-                           onLogout={this.handleLogout} />
 
                 <Content className="app-content">
                     <div id="wrapper" className="container">
-                        <Menu />
+
+                        <CustomMenu isAuthenticated={this.state.isAuthenticated}
+                              currentUser={this.state.currentUser}
+                              onLogout={this.handleLogout} />
+
                         <Switch>
-                            <Route path="/login" render={(props) => <Login onLogin={this.handleLogin} {...props} />}></Route>
-                            <Route path="/signup" component={Signup}></Route>
-                            <Route path="/" exact component={Home}></Route>
-                            <Route path="/faq" component={Faq}></Route>
+                            <Route path="/login" render={(props) => <Login onLogin={this.handleLogin} {...props} />}/>
+                            <Route path="/signup" component={Signup}/>
+                            <Route path="/" exact component={Home}/>
+                            <Route path="/faq" component={Faq}/>
                             <Route path="/users/:username"
                                    render={(props) => <Profile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} {...props}  />}>
                             </Route>
-                            <Route component={NotFound}></Route>
+                            <Route component={NotFound}/>
                         </Switch>
+
                     </div>
                 </Content>
                 <Footer/>

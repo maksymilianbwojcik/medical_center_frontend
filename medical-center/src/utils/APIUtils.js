@@ -1,4 +1,4 @@
-import { API_BASE_URL, POLL_LIST_SIZE, ACCESS_TOKEN } from '../constants';
+import { API_BASE_URL, ACCESS_TOKEN } from '../constants';
 
 const request = (options) => {
     const headers = new Headers({
@@ -6,6 +6,7 @@ const request = (options) => {
     })
 
     if(localStorage.getItem(ACCESS_TOKEN)) {
+        console.log(ACCESS_TOKEN);
         headers.append('Authorization', 'Bearer ' + localStorage.getItem(ACCESS_TOKEN))
     }
 
@@ -15,6 +16,7 @@ const request = (options) => {
     return fetch(options.url, options)
         .then(response =>
             response.json().then(json => {
+                console.log(response);
                 if(!response.ok) {
                     return Promise.reject(json);
                 }

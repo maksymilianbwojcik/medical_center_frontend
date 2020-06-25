@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import {
+    Route,
     Link,
     withRouter
 } from 'react-router-dom';
+import "./AppHeader.css"
 import { Layout, Menu, Dropdown, Icon } from 'antd';
 const Header = Layout.Header;
 
@@ -47,9 +49,7 @@ class AppHeader extends Component {
         return (
             <Header className="app-header">
                 <div className="container">
-                    <div className="app-title" >
-                        <Link to="/">Polling App</Link>
-                    </div>
+
                     <Menu
                         className="app-menu"
                         mode="horizontal"
@@ -79,7 +79,7 @@ function ProfileDropdownMenu(props) {
                 <Link to={`/users/${props.currentUser.username}`}>Profile</Link>
             </Menu.Item>
             <Menu.Item key="logout" className="dropdown-item">
-                Logout
+                <Link to={`/`}>Logout</Link>
             </Menu.Item>
         </Menu>
     );
