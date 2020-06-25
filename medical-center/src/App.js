@@ -36,7 +36,7 @@ class App extends Component{
 
                 <div id="page-wraper">
                     <div id="logo" className="container">
-                        <h1><span className="icon icon-ambulance icon-size"></span><Link to="/">Medi<span>Shield</span></Link></h1>
+                        <h1><span className="icon icon-ambulance icon-size"></span><Link to="/">Medi<span>Scrubs</span></Link></h1>
                     </div>
 
                     <div id="wrapper" className="container">
