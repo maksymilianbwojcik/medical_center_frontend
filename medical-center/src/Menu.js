@@ -5,8 +5,9 @@ import {
     withRouter
 } from 'react-router-dom';
 import { Layout, Menu, Dropdown, Icon } from 'antd';
-const Header = Layout.Header;
+import "./common/AppHeader.css";
 
+const Header = Layout.Header;
 
 class CustomMenu extends Component{
     constructor(props) {
@@ -23,7 +24,7 @@ class CustomMenu extends Component{
     render(){
         let menuItems;
         if(this.props.currentUser) {
-            menuItems = [
+                menuItems = [
                 <Menu.Item key="/profile" className="profile-menu">
                     <ProfileDropdownMenu
                         currentUser={this.props.currentUser}
@@ -37,7 +38,7 @@ class CustomMenu extends Component{
                 </Menu.Item>,
 
                 <Menu.Item key="/signup">
-                    <Link to="/signup">Signup</Link>
+                    <Link to="/signup">Rejestracja</Link>
                 </Menu.Item>
             ];
         }
@@ -51,11 +52,13 @@ class CustomMenu extends Component{
                     <li><Link to="/careers">Kariera</Link></li>
                     <li><Link to="/faq">FAQ</Link></li>
                     <li><Link to="/contact">Kontakt</Link></li>
+
                     <li>
-                        <Menu className="app-menu" mode="horizontal" >
+                        <Menu className="app-menu">
                             {menuItems}
                         </Menu>
                     </li>
+
                 </ul>
             </div>
         );
@@ -64,17 +67,7 @@ class CustomMenu extends Component{
 
 function ProfileDropdownMenu(props) {
     const dropdownMenu = (
-        <Menu onClick={props.handleMenuClick} className="profile-dropdown-menu">
-            <Menu.Item key="user-info" className="dropdown-item" disabled>
-                <div className="user-full-name-info">
-                    {props.currentUser.name}
-                </div>
-                <div className="username-info">
-                    @{props.currentUser.username}
-                </div>
-            </Menu.Item>
-            <Menu.Divider />
-
+        <Menu onClick={props.handleMenuClick} mode="horizontal">
             <Menu.Item key="profile" className="dropdown-item">
                 <Link to={`/users/${props.currentUser.username}`}>Profile</Link>
             </Menu.Item>
@@ -90,8 +83,9 @@ function ProfileDropdownMenu(props) {
             overlay={dropdownMenu}
             trigger={['click']}
             getPopupContainer = { () => document.getElementsByClassName('profile-menu')[0]}>
-            <a className="ant-dropdown-link">
-                <Icon type="user" className="nav-icon" style={{marginRight: 0}} /> <Icon type="down" />
+
+            <a onClick={e=>e.preventDefault()}>
+                <Icon type="user" className="nav-icon" style={{marginRight: 0}}/> <Icon type="down" />
             </a>
         </Dropdown>
     );

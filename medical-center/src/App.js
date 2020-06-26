@@ -12,7 +12,6 @@ import { ACCESS_TOKEN } from './constants';
 import NotFound from "./common/NotFound";
 import LoadingIndicator from "./common/LoadingIndicator";
 import Profile from "./Profile";
-import AppHeader from "./common/AppHeader";
 import Login from "./Login";
 import Signup from './Signup';
 import CustomMenu from "./Menu";
@@ -67,7 +66,6 @@ class App extends Component {
 
     // Handle Logout, Set currentUser and isAuthenticated state which will be passed to other components
     handleLogout(notificationType="success", description="You're successfully logged out.") {
-        console.log(ACCESS_TOKEN);
         localStorage.removeItem(ACCESS_TOKEN);
 
         this.setState({
@@ -79,7 +77,7 @@ class App extends Component {
             message: 'Medishield',
             description: description,
         });
-        //this.props.history.push('/signup');
+       // this.props.history.push('/signup');
     }
 
     handleLogin() {
@@ -96,12 +94,12 @@ class App extends Component {
             return <LoadingIndicator />
         }
         return (
-            <Layout className="page-wraper">
+            <Layout>
                 <div id="logo" className="container">
                     <h1><span className="icon icon-ambulance icon-size"/><Link to="/">Medi<span>Shield</span></Link></h1>
                 </div>
 
-                <Content className="app-content">
+                <Content>
                     <div id="wrapper" className="container">
 
                         <CustomMenu isAuthenticated={this.state.isAuthenticated}
