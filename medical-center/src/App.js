@@ -68,7 +68,7 @@ class App extends Component {
     // Handle Logout, Set currentUser and isAuthenticated state which will be passed to other components
     handleLogout(notificationType="success", description="You're successfully logged out.") {
         localStorage.removeItem(ACCESS_TOKEN);
-
+        
         this.setState({
             currentUser: null,
             isAuthenticated: false
@@ -89,6 +89,12 @@ class App extends Component {
         this.loadCurrentUser();
         this.history.push("/");
     }
+/*
+                <div id="page-wraper">
+                    <div id="logo" className="container">
+                        <h1><span className="icon icon-ambulance icon-size"></span><Link to="/">Medi<span>Scrubs</span></Link></h1>
+                    </div>
+*/
 
     render() {
         if(this.state.isLoading) {
