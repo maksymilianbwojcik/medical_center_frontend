@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-
+import News from "./News";
 class Home extends Component{
 
     render(){
         return (
         <div id="home-wraper">
+            <News/>
             <div id="three-column" className="container">
                 <div><span className="arrow-down"></span></div>
                 <div id="tbox1"> <span className="icon icon-wrench"></span>
@@ -26,23 +27,7 @@ class Home extends Component{
                     <p>Donec mattis libero eget urna. Duis pretium velit ac mauris. Proin eu wisi suscipit nulla suscipit interdum. Nullam non wisi a sem suscipit semper eleifend.</p>
                     <a href="#" className="button">Learn More</a> </div>
             </div>
-            <div id="page">
-                <div><span className="arrow-down"></span></div>
-                <div id="box1">
-                    <div className="title">
-                        <h2>Welcome to our website</h2>
-                        <span className="byline">Integer sit amet pede vel arcu aliquet pretium</span> </div>
-                    <p>This is <strong>Justifiable</strong>, a free, fully standards-compliant CSS template designed by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>. The photos in this template are from <a href="http://fotogrph.com/"> Fotogrph</a>. This free template is released under the <a href="http://templated.co/license">Creative Commons Attribution</a> license, so you're pretty much free to do whatever you want with it (even use it commercially) provided you give us credit for it. Have fun :) </p>
-                    <a href="#" className="button">Learn More</a>
-                </div>
-                <div id="box2">
-                    <div className="title">
-                        <h2>Fusce ultrices fringilla</h2>
-                        <span className="byline">Integer sit amet pede vel arcu aliquet pretium</span> </div>
-                    <p>Mauris aliquet. Aliquam sem leo, vulputate sed, convallis at, ultricies quis, justo. Donec nonummy magna quis risus. Quisque eleifend. Phasellus tempor vehicula justo. Aliquam lacinia metus ut elit. Suspendisse iaculis mauris nec lorem. Quisque semper augue mattis wisi. Maecenas ligula. Pellentesque viverra vulputate enim. Aliquam erat volutpat. Curabitur sit amet nulla. Nam in massa.</p>	
-                    <a href="#" className="button">Learn More</a>
-                </div>
-            </div>
+
             <div id="portfolio">
                 <div><span className="arrow-down"></span></div>
                 <div className="title">

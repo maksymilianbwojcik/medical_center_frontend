@@ -1,32 +1,42 @@
 import React, {Component} from 'react';
 import Question from './Question';
+import {getQuestions} from './utils/APIUtils';
 
 class Faq extends Component{
+    _isMounted = false;
 
     state = {
-        data: []
+            data: [],
     }
 
-    // async componentDidMount(){
-    //     const url = "http://localhost:8080/api/faq/all";
-    //     const response = await fetch(url);
-    //     const data = await response.json();
-    //     this.setState({data});
-    // }
-
     componentDidMount() {
-        fetch("http://localhost:8080/api/faq/all")
-        .then(response => response.json())
-        .then(data => this.setState({data}));
-        console.log(this.setState.data);
+        this._isMounted = true;
+
+        getQuestions()
+            .then(response => {
+                console.log(response);
+                if(this._isMounted === true) {
+                    this.setState({
+                        data: response
+                    });
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 
     render(){
+        console.log(this.state.data);
         return (
-        <div id="faq-wraper">
-            {this.state.data.map(question => 
-                <Question info={question}/>)}
-        </div>
+            <div id="faq-wraper">
+                {this.state.data.map(question =>
+                <Question info={question}/>)}}
+            </div>
         );
     }
 }

@@ -1,15 +1,14 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     Route,
     Link,
     withRouter
 } from 'react-router-dom';
+import "./AppHeader.css"
 import { Layout, Menu, Dropdown, Icon } from 'antd';
-import "./common/AppHeader.css";
-
 const Header = Layout.Header;
 
-class CustomMenu extends Component{
+class AppHeader extends Component {
     constructor(props) {
         super(props);
         this.handleMenuClick = this.handleMenuClick.bind(this);
@@ -21,10 +20,15 @@ class CustomMenu extends Component{
         }
     }
 
-    render(){
+    render() {
         let menuItems;
         if(this.props.currentUser) {
             menuItems = [
+                <Menu.Item key="/">
+                    <Link to="/">
+                        <Icon type="home" className="nav-icon" />
+                    </Link>
+                </Menu.Item>,
                 <Menu.Item key="/profile" className="profile-menu">
                     <ProfileDropdownMenu
                         currentUser={this.props.currentUser}
@@ -36,43 +40,44 @@ class CustomMenu extends Component{
                 <Menu.Item key="/login">
                     <Link to="/login">Login</Link>
                 </Menu.Item>,
-
                 <Menu.Item key="/signup">
-                    <Link to="/signup">Rejestracja</Link>
+                    <Link to="/signup">Signup</Link>
                 </Menu.Item>
             ];
         }
 
         return (
-            <div id="menu" className="container">
-                <ul>
-                    <li className="current_page_item"><Link to="/">Strona główna</Link></li>
-                    <li><Link to="/clients">Nasi klienci</Link></li>
-                    <li><Link to="/news">Aktualności</Link></li>
-                    <li><Link to="/about">O nas</Link></li>
-                    <li><Link to="/careers">Kariera</Link></li>
-                    <li><Link to="/faq">FAQ</Link></li>
-                    <li><Link to="/contact">Kontakt</Link></li>
+            <Header className="app-header">
+                <div className="container">
 
-                    <li>
-                        <Menu className="app-menu">
-                            {menuItems}
-                        </Menu>
-                    </li>
-
-                </ul>
-            </div>
+                    <Menu
+                        className="app-menu"
+                        mode="horizontal"
+                        selectedKeys={[this.props.location.pathname]}
+                        style={{ lineHeight: '64px' }} >
+                        {menuItems}
+                    </Menu>
+                </div>
+            </Header>
         );
     }
 }
 
 function ProfileDropdownMenu(props) {
     const dropdownMenu = (
-        <Menu onClick={props.handleMenuClick} mode="horizontal">
+        <Menu onClick={props.handleMenuClick} className="profile-dropdown-menu">
+            <Menu.Item key="user-info" className="dropdown-item" disabled>
+                <div className="user-full-name-info">
+                    {props.currentUser.name}
+                </div>
+                <div className="username-info">
+                    @{props.currentUser.username}
+                </div>
+            </Menu.Item>
+            <Menu.Divider />
             <Menu.Item key="profile" className="dropdown-item">
                 <Link to={`/users/${props.currentUser.username}`}>Profile</Link>
             </Menu.Item>
-
             <Menu.Item key="logout" className="dropdown-item">
                 <Link to={`/`}>Logout</Link>
             </Menu.Item>
@@ -84,12 +89,12 @@ function ProfileDropdownMenu(props) {
             overlay={dropdownMenu}
             trigger={['click']}
             getPopupContainer = { () => document.getElementsByClassName('profile-menu')[0]}>
-
-            <a onClick={e=>e.preventDefault()}>
-                <Icon type="user" className="nav-icon" style={{marginRight: 0}}/> <Icon type="down" />
+            <a className="ant-dropdown-link">
+                <Icon type="user" className="nav-icon" style={{marginRight: 0}} /> <Icon type="down" />
             </a>
         </Dropdown>
     );
 }
 
-export default CustomMenu;
+
+export default withRouter(AppHeader);

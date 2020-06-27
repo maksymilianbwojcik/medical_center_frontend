@@ -1,32 +1,43 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
+import NewsDetails from "./NewsDetails";
+import {getNews} from "./utils/APIUtils";
 
 class News extends Component{
 
+    _isMounted = false;
+
+    state = {
+        data: [],
+    }
+
     componentDidMount() {
-        fetch("http://localhost:8080/api/news/all")
-            .then(response => response.json())
-            .then(data => this.setState({data}));
-        console.log(this.setState.data);
+        this._isMounted = true;
+
+        getNews()
+            .then(response => {
+                console.log(response);
+                if(this._isMounted === true) {
+                    this.setState({
+                        data: response
+                    });
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 
     render(){
+        console.log(this.state.data);
         return (
-            <div id="home-wraper">
-                <div id="page">
-                    <div className="title">
-                        <h2>Don't DUDAt</h2>
-                        <span className="byline">Data i godzina</span> </div>
-                    <p> Operacja się udała. Pacjent nie żyje. </p>
-                    <a href="#" className="button">Rozwiń</a>
-                </div>
-                <div id="page">
-                    <div className="title">
-                        <h2>Nie chcem, ale muszem</h2>
-                        <span className="byline">Data i godzina</span> </div>
-                    <p>Mam dobre wieści. To Koronawirus. </p>
-                    <a href="#" className="button">Rozwiń</a>
-                </div>
+            <div id="news-wraper">
+                {this.state.data.map(news =>
+                    <NewsDetails info={news}/>)}}
             </div>
         );
     }
