@@ -643,11 +643,48 @@
 	{
 		border-top-color: #292929;
 	}
+	/*********************************************************************************/
+	/* LOGIN  AND REGISTRATION                                                       */
+	/*********************************************************************************/
 
+	#sign-up{
+		color: #0000FF;
+		font-size: 32px;
+		margin: 0;
+		list-style: none;
+		line-height: normal;
+		display: inline-block;
+		float: right;
+	}
 
+	#sign-up span
+	{
+		color: #01A9DC;
+	}
 
+	#form-login{
+		padding: 16px;
+	}
 
+	input[type=text], input[type=email], input[type=password], input[type=password_confirmation] {
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		display: inline-block;
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+	}
 
+	button {
+		background-color: #01A9DC;
+		color: white;
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		cursor: pointer;
+		width: 100%;
+	}
 
-
-
+	button:hover {
+		opacity: 0.8;
+	}
