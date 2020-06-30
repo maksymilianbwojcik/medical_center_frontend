@@ -32,8 +32,10 @@ class DoctorInfo extends Component{
     render(){
         return (
             <div id="doctor-wraper">
+                <br></br>
                 {this.state.data.map(username =>
                 <a href={"http://localhost:3000/doctor/" + username}>{username}</a>)}
+                <br></br>
             </div>
         );
     }
