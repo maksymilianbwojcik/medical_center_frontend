@@ -18,8 +18,11 @@ import CustomMenu from "./Menu";
 import Home from "./Home";
 import Faq from "./Faq";
 import Footer from "./Footer";
+import Timetable from "./Timetable";
+import DoctorList from "./DoctorList";
 
 import { Layout, notification } from 'antd';
+import DoctorInfo from './DoctorInfo';
 const { Content } = Layout;
 
 class App extends Component {
@@ -111,9 +114,16 @@ class App extends Component {
                             <Route path="/signup" component={Signup}/>
                             <Route path="/" exact component={Home}/>
                             <Route path="/faq" component={Faq}/>
+                            <Route path="/timetable" component={Timetable}/>
+                            <Route path="/doctors" component={DoctorList}/>
+                            
                             <Route path="/users/:username"
                                    render={(props) => <Profile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} {...props}  />}>
                             </Route>
+                            <Route path="/doctor/:username"
+                                   render={(props) => <DoctorInfo isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} {...props}  />}>
+                            </Route>
+
                             <Route component={NotFound}/>
                         </Switch>
 

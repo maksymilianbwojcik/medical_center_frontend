@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import Question from './Question';
-import {getQuestions} from './utils/APIUtils';
+import {getDoctor} from './utils/APIUtils';
 
-class Faq extends Component{
+class DoctorInfo extends Component{
     _isMounted = false;
 
     state = {
@@ -12,7 +11,7 @@ class Faq extends Component{
     componentDidMount() {
         this._isMounted = true;
 
-        getQuestions()
+        getDoctor()
             .then(response => {
                 console.log(response);
                 if(this._isMounted === true) {
@@ -33,12 +32,12 @@ class Faq extends Component{
     render(){
         console.log(this.state.data);
         return (
-            <div id="faq-wraper">
-                {this.state.data.map(question =>
-                <Question info={question}/>)}
+            <div id="doctor-wraper">
+                {this.state.data.map(username =>
+                <a href={"http://localhost:3000/doctor/" + username}>{username}</a>)}
             </div>
         );
     }
 }
 
-export default Faq;
+export default DoctorInfo;

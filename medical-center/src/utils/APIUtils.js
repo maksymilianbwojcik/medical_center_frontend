@@ -73,9 +73,26 @@ export function getCurrentUser() {
     });
 }
 
+//FAQ
 export function getQuestions() {
     return request({
         url: API_BASE_URL + "/questions/all",
+        method: 'GET'
+    });
+}
+
+//DoctorList
+export function getAllDoctors() {
+    return request({
+        url: API_BASE_URL + "/doctors",
+        method: 'GET'
+    });
+}
+
+//DoctorInfo
+export function getDoctor(username) {
+    return request({
+        url: API_BASE_URL + "/doctors/" + username,
         method: 'GET'
     });
 }

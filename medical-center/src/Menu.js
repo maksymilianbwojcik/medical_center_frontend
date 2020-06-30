@@ -47,7 +47,7 @@ class CustomMenu extends Component{
             <div id="menu" className="container">
                 <ul>
                     <li className="current_page_item"><Link to="/">Strona główna</Link></li>
-                    <li><Link to="/clients">Nasi klienci</Link></li>
+                    <li><Link to="/doctors">Nasi lekarze</Link></li>
                     <li><Link to="/about">O nas</Link></li>
                     <li><Link to="/careers">Kariera</Link></li>
                     <li><Link to="/faq">FAQ</Link></li>
@@ -70,6 +70,10 @@ function ProfileDropdownMenu(props) {
         <Menu onClick={props.handleMenuClick} mode="horizontal">
             <Menu.Item key="profile" className="dropdown-item">
                 <Link to={`/users/${props.currentUser.username}`}>Profile</Link>
+            </Menu.Item>
+
+            <Menu.Item key="timetable" className="dropdown-item">
+                <Link to={`/timetable`}>Timetable</Link>
             </Menu.Item>
 
             <Menu.Item key="logout" className="dropdown-item">
