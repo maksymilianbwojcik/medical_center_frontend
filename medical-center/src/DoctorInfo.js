@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {getDoctor} from './utils/APIUtils';
+import AvailableTimetable from './AvailableTimetable';
 
 class DoctorInfo extends Component{
     _isMounted = false;
@@ -9,11 +10,12 @@ class DoctorInfo extends Component{
     }
 
     componentDidMount() {
+        const {match: {params}} = this.props;
         this._isMounted = true;
 
-        getDoctor()
+        getDoctor(params.doctorId)
             .then(response => {
-                console.log(response);
+                //console.log(response);
                 if(this._isMounted === true) {
                     this.setState({
                         data: response
@@ -23,6 +25,8 @@ class DoctorInfo extends Component{
             .catch(error => {
                 console.log(error);
             });
+
+        //todo getAvailableTimetalbe
     }
 
     componentWillUnmount() {
@@ -30,12 +34,11 @@ class DoctorInfo extends Component{
     }
 
     render(){
+        //todo timetalbe
         return (
-            <div id="doctor-wraper">
-                <br></br>
-                {this.state.data.map(username =>
-                <a href={"http://localhost:3000/doctor/" + username}>{username}</a>)}
-                <br></br>
+            <div id="doctor-info-wraper">
+                <h2>{this.state.data.titles +" "+ this.state.data.specialization +" "+ this.state.data.name + " " + this.state.data.surname}</h2>
+                <AvailableTimetable></AvailableTimetable>
             </div>
         );
     }

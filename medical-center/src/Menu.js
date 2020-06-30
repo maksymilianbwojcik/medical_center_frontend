@@ -72,8 +72,8 @@ function ProfileDropdownMenu(props) {
                 <Link to={`/users/${props.currentUser.username}`}>Profile</Link>
             </Menu.Item>
 
-            <Menu.Item key="timetable" className="dropdown-item">
-                <Link to={`/timetable`}>Timetable</Link>
+            <Menu.Item key="usertimetable" className="dropdown-item">
+                <Link to={`/usertimetable`}>Timetable</Link>
             </Menu.Item>
 
             <Menu.Item key="logout" className="dropdown-item">

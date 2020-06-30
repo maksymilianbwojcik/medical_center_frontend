@@ -1,18 +1,20 @@
 import React, {Component} from 'react';
-import {getAllDoctors} from './utils/APIUtils';
+import Question from './Question';
+import {getQuestions} from './utils/APIUtils';
 
-class DoctorList extends Component{
+class UserTimetable extends Component{
     _isMounted = false;
 
     state = {
-        data: [],
+            data: [],
     }
 
     componentDidMount() {
         this._isMounted = true;
 
-        getAllDoctors()
+        getQuestions()
             .then(response => {
+                console.log(response);
                 if(this._isMounted === true) {
                     this.setState({
                         data: response
@@ -29,13 +31,14 @@ class DoctorList extends Component{
     }
 
     render(){
+        console.log(this.state.data);
         return (
-            <div id="doctor-wraper">
-                {this.state.data.map(resp =>
-                <span><a key={resp.id} href={"http://localhost:3000/doctor/" + resp.id}>{resp.titles +" "+resp.name +" "+ resp.surname + " "+ resp.specialization}</a> <br></br></span>)}
+            <div id="faq-wraper">
+                {this.state.data.map(question =>
+                <Question info={question}/>)}
             </div>
         );
     }
 }
 
-export default DoctorList;
+export default UserTimetable;

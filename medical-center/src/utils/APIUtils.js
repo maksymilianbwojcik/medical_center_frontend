@@ -90,9 +90,9 @@ export function getAllDoctors() {
 }
 
 //DoctorInfo
-export function getDoctor(username) {
+export function getDoctor(id) {
     return request({
-        url: API_BASE_URL + "/doctors/" + username,
+        url: API_BASE_URL + `/doctor/${id}`,
         method: 'GET'
     });
 }

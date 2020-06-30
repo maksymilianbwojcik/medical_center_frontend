@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import Question from './Question';
 import {getQuestions} from './utils/APIUtils';
 
-class Timetable extends Component{
+class AvailableTimetable extends Component{
     _isMounted = false;
 
     state = {
-            data: [],
+        data: [],
     }
 
     componentDidMount() {
@@ -41,4 +41,4 @@ class Timetable extends Component{
     }
 }
 
-export default Timetable;
+export default AvailableTimetable;
