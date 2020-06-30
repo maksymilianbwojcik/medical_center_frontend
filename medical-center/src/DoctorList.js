@@ -30,11 +30,10 @@ class DoctorList extends Component{
     }
 
     render(){
-        console.log(this.state.data);
         return (
             <div id="doctor-wraper">
-                {this.state.data.map(username =>
-                <a href={"http://localhost:3000/doctor/" + username}>{username}</a>)}
+                {this.state.data.map(resp =>
+                <a key={resp.id} href={"http://localhost:3000/doctor/" + resp.id}>{resp.name +" "+ resp.surname}</a>)}
             </div>
         );
     }

@@ -30,7 +30,6 @@ class DoctorInfo extends Component{
     }
 
     render(){
-        console.log(this.state.data);
         return (
             <div id="doctor-wraper">
                 {this.state.data.map(username =>
