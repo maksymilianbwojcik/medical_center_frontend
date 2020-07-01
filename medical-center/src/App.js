@@ -120,7 +120,7 @@ class App extends Component {
                             <Route path="/users/:username"
                                    render={(props) => <Profile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} {...props}  />}>
                             </Route>
-                            <Route path="/doctor/:doctorId" component={DoctorInfo}/>
+                            <Route path="/doctor/:doctorId" component={DoctorInfo} currentUser={this.state.currentUser}/>
 
                             <Route component={NotFound}/>
                         </Switch>

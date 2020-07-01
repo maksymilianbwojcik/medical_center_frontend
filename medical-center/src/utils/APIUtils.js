@@ -96,3 +96,10 @@ export function getDoctor(id) {
         method: 'GET'
     });
 }
+
+export function getAvailableTimetable(username) {
+    return request({
+        url: API_BASE_URL + `/doctors/${username}`,
+        method: 'GET'
+    });
+}

@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
-import {getDoctor} from './utils/APIUtils';
+import {getDoctor, getAvailableTimetalbe} from './utils/APIUtils';
 import AvailableTimetable from './AvailableTimetable';
 
 class DoctorInfo extends Component{
     _isMounted = false;
 
     state = {
-        data: [],
+        data: Object,
+        user: Object
     }
 
     componentDidMount() {
@@ -15,18 +16,16 @@ class DoctorInfo extends Component{
 
         getDoctor(params.doctorId)
             .then(response => {
-                //console.log(response);
                 if(this._isMounted === true) {
                     this.setState({
-                        data: response
+                        data: response,
+                        user: response.user
                     });
                 }
             })
             .catch(error => {
                 console.log(error);
             });
-
-        //todo getAvailableTimetalbe
     }
 
     componentWillUnmount() {
@@ -38,7 +37,9 @@ class DoctorInfo extends Component{
         return (
             <div id="doctor-info-wraper">
                 <h2>{this.state.data.titles +" "+ this.state.data.specialization +" "+ this.state.data.name + " " + this.state.data.surname}</h2>
-                <AvailableTimetable></AvailableTimetable>
+                <div>
+                    <AvailableTimetable info={this.state.user} ></AvailableTimetable>
+                </div>
             </div>
         );
     }

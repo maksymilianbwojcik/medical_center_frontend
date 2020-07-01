@@ -1,23 +1,22 @@
 import React, {Component} from 'react';
 import Question from './Question';
-import {getQuestions} from './utils/APIUtils';
+import {getQuestions, getAvailableTimetable} from './utils/APIUtils';
 
 class AvailableTimetable extends Component{
     _isMounted = false;
 
     state = {
-        data: [],
+        timetable: Object,
     }
 
     componentDidMount() {
         this._isMounted = true;
 
-        getQuestions()
+        getAvailableTimetable(this.props.info.username)
             .then(response => {
-                console.log(response);
                 if(this._isMounted === true) {
                     this.setState({
-                        data: response
+                        timetable: response
                     });
                 }
             })
@@ -31,11 +30,14 @@ class AvailableTimetable extends Component{
     }
 
     render(){
-        console.log(this.state.data);
         return (
-            <div id="faq-wraper">
-                {this.state.data.map(question =>
-                <Question info={question}/>)}
+            <div id="timetable-element-wraper">
+                {/* {this.state.data.map(timetable =>
+                <div>
+                    <h3>Wizyta</h3>
+                    <p>{timetable.time}</p>
+                    //todo link to 
+                </div>)} */}
             </div>
         );
     }
