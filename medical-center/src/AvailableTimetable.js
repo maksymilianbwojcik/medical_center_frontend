@@ -1,35 +1,41 @@
 import React, {Component} from 'react';
-import Question from './Question';
-import {getQuestions, getAvailableTimetable} from './utils/APIUtils';
+import {getAvailableTimetable} from './utils/APIUtils';
 
 class AvailableTimetable extends Component{
-    _isMounted = false;
-
-    state = {
-        timetable: Object,
+    constructor(props){
+        super(props)
+        this.state = {
+            timetable: Object,
+        }
     }
+    _isMounted = false;
 
     componentDidMount() {
         this._isMounted = true;
-
-        getAvailableTimetable(this.props.info.username)
-            .then(response => {
-                if(this._isMounted === true) {
-                    this.setState({
-                        timetable: response
-                    });
-                }
-            })
-            .catch(error => {
-                console.log(error);
-            });
     }
 
     componentWillUnmount() {
         this._isMounted = false;
     }
 
+    componentDidUpdate(){
+        getAvailableTimetable(this.props.info)
+        .then(response => {
+            if(this._isMounted === true) {
+                this.setState({
+                    timetable: response
+                });
+            }
+        })
+        .catch(error => {
+            console.log(error);
+        });
+
+        this._isMounted = false;
+    }
+
     render(){
+        console.log(this.state.timetable);
         return (
             <div id="timetable-element-wraper">
                 {/* {this.state.data.map(timetable =>
@@ -39,7 +45,7 @@ class AvailableTimetable extends Component{
                     //todo link to 
                 </div>)} */}
             </div>
-        );
+        )
     }
 }
 

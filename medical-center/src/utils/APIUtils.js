@@ -99,7 +99,7 @@ export function getDoctor(id) {
 
 export function getAvailableTimetable(username) {
     return request({
-        url: API_BASE_URL + `/doctors/${username}`,
+        url: API_BASE_URL + `/timetable/doctors/${username}`,
         method: 'GET'
     });
 }

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {getDoctor, getAvailableTimetalbe} from './utils/APIUtils';
+import {getDoctor} from './utils/APIUtils';
 import AvailableTimetable from './AvailableTimetable';
 
 class DoctorInfo extends Component{
@@ -7,7 +7,7 @@ class DoctorInfo extends Component{
 
     state = {
         data: Object,
-        user: Object
+        user: Object,
     }
 
     componentDidMount() {
@@ -38,7 +38,7 @@ class DoctorInfo extends Component{
             <div id="doctor-info-wraper">
                 <h2>{this.state.data.title +" "+ this.state.data.specialization +" "+ this.state.data.name + " " + this.state.data.surname}</h2>
                 <div>
-                    <AvailableTimetable info={this.state.user} ></AvailableTimetable>
+                    <AvailableTimetable info={this.state.user.username}></AvailableTimetable>
                 </div>
             </div>
         );
