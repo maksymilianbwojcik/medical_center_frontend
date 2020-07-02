@@ -18,12 +18,10 @@ import CustomMenu from "./Menu";
 import Home from "./Home";
 import Faq from "./Faq";
 import Footer from "./Footer";
-<<<<<<< HEAD
 import UserTimetable from "./UserTimetable";
 import DoctorList from "./DoctorList";
-=======
 import News from "./News";
->>>>>>> Infos
+
 
 import { Layout, notification } from 'antd';
 import DoctorInfo from './DoctorInfo';
@@ -124,13 +122,9 @@ class App extends Component {
                             <Route path="/signup" component={Signup}/>
                             <Route path="/" exact component={Home}/>
                             <Route path="/faq" component={Faq}/>
-<<<<<<< HEAD
                             <Route path="/usertimetable" component={UserTimetable}/>
                             <Route path="/doctors" component={DoctorList}/>
-                            
-=======
                             <Route path="/news" component={News}/>
->>>>>>> Infos
                             <Route path="/users/:username"
                                    render={(props) => <Profile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} {...props}  />}>
                             </Route>

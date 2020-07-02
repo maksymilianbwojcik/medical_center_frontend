@@ -37,7 +37,7 @@ class News extends Component{
         return (
             <div id="news-wraper">
                 {this.state.data.map(news =>
-                    <NewsDetails info={news}/>)}}
+                    <NewsDetails info={news}/>)}
             </div>
         );
     }

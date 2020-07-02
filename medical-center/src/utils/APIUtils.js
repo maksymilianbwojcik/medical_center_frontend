@@ -81,7 +81,6 @@ export function getQuestions() {
     });
 }
 
-<<<<<<< HEAD
 //DoctorList
 export function getAllDoctors() {
     return request({
@@ -94,11 +93,13 @@ export function getAllDoctors() {
 export function getDoctor(id) {
     return request({
         url: API_BASE_URL + `/doctor/${id}`,
-=======
+        method: 'GET'
+    });
+}
+
 export function getNews() {
     return request({
         url: API_BASE_URL + "/news/all",
->>>>>>> Infos
         method: 'GET'
     });
 }

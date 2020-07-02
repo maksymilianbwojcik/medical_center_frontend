@@ -47,23 +47,16 @@ class CustomMenu extends Component{
             <div id="menu" className="container">
                 <ul>
                     <li className="current_page_item"><Link to="/">Strona główna</Link></li>
-<<<<<<< HEAD
                     <li><Link to="/doctors">Nasi lekarze</Link></li>
-=======
-                    <li><Link to="/clients">Nasi klienci</Link></li>
                     <li><Link to="/news">Aktualności</Link></li>
->>>>>>> Infos
                     <li><Link to="/about">O nas</Link></li>
-                    <li><Link to="/careers">Kariera</Link></li>
                     <li><Link to="/faq">FAQ</Link></li>
                     <li><Link to="/contact">Kontakt</Link></li>
-
                     <li>
                         <Menu className="app-menu">
                             {menuItems}
                         </Menu>
                     </li>
-
                 </ul>
             </div>
         );

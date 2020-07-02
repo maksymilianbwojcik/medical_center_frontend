@@ -380,14 +380,14 @@
 	#page #box1
 	{
 		float: left;
-		/*width: 500px;*/
+		width: 500px;
 	}
 
-	/*#page #box2
+	#page #box2
 	{
 		float: right;
 		width: 500px;
-	}*/
+	}
 	
 	#page a
 	{
