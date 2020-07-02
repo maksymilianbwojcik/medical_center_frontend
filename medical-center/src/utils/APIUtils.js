@@ -97,6 +97,13 @@ export function getDoctor(id) {
     });
 }
 
+export function getNews() {
+    return request({
+        url: API_BASE_URL + "/news/all",
+        method: 'GET'
+    });
+}
+
 export function getAvailableTimetable(username) {
     return request({
         url: API_BASE_URL + `/timetable/doctors/${username}`,

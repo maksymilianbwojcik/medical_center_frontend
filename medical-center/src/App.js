@@ -20,6 +20,8 @@ import Faq from "./Faq";
 import Footer from "./Footer";
 import UserTimetable from "./UserTimetable";
 import DoctorList from "./DoctorList";
+import News from "./News";
+
 
 import { Layout, notification } from 'antd';
 import DoctorInfo from './DoctorInfo';
@@ -70,7 +72,7 @@ class App extends Component {
     // Handle Logout, Set currentUser and isAuthenticated state which will be passed to other components
     handleLogout(notificationType="success", description="You're successfully logged out.") {
         localStorage.removeItem(ACCESS_TOKEN);
-
+        
         this.setState({
             currentUser: null,
             isAuthenticated: false
@@ -80,7 +82,7 @@ class App extends Component {
             message: 'Medishield',
             description: description,
         });
-       // this.props.history.push('/signup');
+        // this.props.history.push('/signup');
     }
 
     handleLogin() {
@@ -91,6 +93,12 @@ class App extends Component {
         this.loadCurrentUser();
         this.history.push("/");
     }
+/*
+                <div id="page-wraper">
+                    <div id="logo" className="container">
+                        <h1><span className="icon icon-ambulance icon-size"></span><Link to="/">Medi<span>Scrubs</span></Link></h1>
+                    </div>
+*/
 
     render() {
         if(this.state.isLoading) {
@@ -106,8 +114,8 @@ class App extends Component {
                     <div id="wrapper" className="container">
 
                         <CustomMenu isAuthenticated={this.state.isAuthenticated}
-                              currentUser={this.state.currentUser}
-                              onLogout={this.handleLogout} />
+                                    currentUser={this.state.currentUser}
+                                    onLogout={this.handleLogout} />
 
                         <Switch>
                             <Route path="/login" render={(props) => <Login onLogin={this.handleLogin} {...props} />}/>
@@ -116,7 +124,7 @@ class App extends Component {
                             <Route path="/faq" component={Faq}/>
                             <Route path="/usertimetable" component={UserTimetable}/>
                             <Route path="/doctors" component={DoctorList}/>
-                            
+                            <Route path="/news" component={News}/>
                             <Route path="/users/:username"
                                    render={(props) => <Profile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} {...props}  />}>
                             </Route>

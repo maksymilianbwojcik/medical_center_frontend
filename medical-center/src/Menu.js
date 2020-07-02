@@ -24,7 +24,7 @@ class CustomMenu extends Component{
     render(){
         let menuItems;
         if(this.props.currentUser) {
-                menuItems = [
+            menuItems = [
                 <Menu.Item key="/profile" className="profile-menu">
                     <ProfileDropdownMenu
                         currentUser={this.props.currentUser}
@@ -48,17 +48,15 @@ class CustomMenu extends Component{
                 <ul>
                     <li className="current_page_item"><Link to="/">Strona główna</Link></li>
                     <li><Link to="/doctors">Nasi lekarze</Link></li>
+                    <li><Link to="/news">Aktualności</Link></li>
                     <li><Link to="/about">O nas</Link></li>
-                    <li><Link to="/careers">Kariera</Link></li>
                     <li><Link to="/faq">FAQ</Link></li>
                     <li><Link to="/contact">Kontakt</Link></li>
-
                     <li>
                         <Menu className="app-menu">
                             {menuItems}
                         </Menu>
                     </li>
-
                 </ul>
             </div>
         );
