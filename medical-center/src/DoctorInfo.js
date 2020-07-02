@@ -36,7 +36,7 @@ class DoctorInfo extends Component{
         //todo timetalbe
         return (
             <div id="doctor-info-wraper">
-                <h2>{this.state.data.titles +" "+ this.state.data.specialization +" "+ this.state.data.name + " " + this.state.data.surname}</h2>
+                <h2>{this.state.data.title +" "+ this.state.data.specialization +" "+ this.state.data.name + " " + this.state.data.surname}</h2>
                 <div>
                     <AvailableTimetable info={this.state.user} ></AvailableTimetable>
                 </div>
