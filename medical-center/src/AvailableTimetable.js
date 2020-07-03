@@ -1,27 +1,21 @@
 import React, {Component} from 'react';
-import {getAvailableTimetable} from './utils/APIUtils';
-import Loader from 'react-loader-spinner'
+import {getAvailableTimetable, reserveAppointment} from './utils/APIUtils';
+import { formatDate } from './utils/Helpers';
 
 class AvailableTimetable extends Component{
     constructor(props){
         super(props)
         this.state = {
-            timetable: Object,
+            timetable: [],
+            canRender: false
         }
+        console.log(this.props.info);
     }
     _isMounted = false;
 
-    // componentDidMount() {
-    //     this._isMounted = true;
-    // }
+    componentDidMount() {
+        this._isMounted = true;
 
-    componentWillUnmount() {
-        this._isMounted = false;
-    }
-
-    componentDidUpdate(){
-
-		this._isMounted = true;
         getAvailableTimetable(this.props.info)
         .then(response => {
             if(this._isMounted === true) {
@@ -34,37 +28,32 @@ class AvailableTimetable extends Component{
             console.log(error);
         });
 
+        this.setState({canRender: true});
+    }
+
+    componentWillUnmount() {
         this._isMounted = false;
     }
 
     render(){
-		console.log(this.state.timetable);
-		
-		if (!this._isMounted) {
+        if(this.state.canRender){
 			return (
-				<div id="timetable-element-wraper">
-					{/* {this.state.data.map(timetable =>
-					<div>
+				<div className="timetable-element-wraper">
+					{this.state.timetable.map(timetable =>
+					<div className="timetable-element">
 						<h3>Wizyta</h3>
-						<p>{timetable.time}</p>
-						//todo link to 
-					</div>)} */}
+						<p>{formatDate(timetable.date)}</p>
+						<button className="timetable-element-button" onClick={() => {reserveAppointment(this.timetable.id); window.location.reload(false)}}>Umów się na wizytę</button>
+					</div>)}
 				</div>
-			)
-		}
-		else {
-			return(
-				<Loader
-				   type="Puff"
-				   color="#00BFFF"
-				   height={100}
-				   width={100}
-				   timeout={3000} //3 secs
-		   
-				/>
-			);
-		}
-    }
+            )
+        }
+        else{
+            return (
+                <h2>Brak wizyt!</h2>
+            )
+        }
+	}
 }
 
 export default AvailableTimetable;

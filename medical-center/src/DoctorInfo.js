@@ -8,6 +8,7 @@ class DoctorInfo extends Component{
     state = {
         data: Object,
         user: Object,
+        canRender: false
     }
 
     componentDidMount() {
@@ -25,7 +26,9 @@ class DoctorInfo extends Component{
             })
             .catch(error => {
                 console.log(error);
-            });
+        });
+        this.setState({canRender: true});
+        
     }
 
     componentWillUnmount() {
@@ -33,15 +36,23 @@ class DoctorInfo extends Component{
     }
 
     render(){
-        //todo timetalbe
-        return (
-            <div id="doctor-info-wraper">
-                <h2>{this.state.data.title +" "+ this.state.data.specialization +" "+ this.state.data.name + " " + this.state.data.surname}</h2>
-                <div>
-                    <AvailableTimetable info={this.state.user.username}></AvailableTimetable>
+        if (this.state.canRender){
+            return (
+                <div id="doctor-info-wraper">
+                    <h2>{this.state.data.title +" "+ this.state.data.specialization +" "+ this.state.data.name + " " + this.state.data.surname}</h2>
+                    <div>
+                        <AvailableTimetable info={this.state.user.username}></AvailableTimetable>
+                    </div>
                 </div>
-            </div>
-        );
+            );
+        }
+        else{
+            return (
+                <div id="doctor-info-wraper">
+                    <p>Brak danych o doktorze</p>
+                </div>
+            );
+        }
     }
 }
 
