@@ -9,13 +9,33 @@ class AvailableTimetable extends Component{
             timetable: [],
             canRender: false
         }
-        console.log(this.props.info);
     }
     _isMounted = false;
+    count = 0;
 
     componentDidMount() {
         this._isMounted = true;
 
+        // getAvailableTimetable(this.props.info)
+        // .then(response => {
+        //     if(this._isMounted === true) {
+        //         this.setState({
+        //             timetable: response
+        //         });
+        //     }
+        // })
+        // .catch(error => {
+        //     console.log(error);
+        // });
+
+        // this.setState({canRender: true});
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
+    }
+
+    componentDidUpdate() {
         getAvailableTimetable(this.props.info)
         .then(response => {
             if(this._isMounted === true) {
@@ -27,12 +47,12 @@ class AvailableTimetable extends Component{
         .catch(error => {
             console.log(error);
         });
+        this.count ++;
 
-        this.setState({canRender: true});
-    }
-
-    componentWillUnmount() {
-        this._isMounted = false;
+        if (this.count == 2) {
+            this._isMounted = false;
+            this.setState({canRender: true});
+        }
     }
 
     render(){
@@ -40,10 +60,10 @@ class AvailableTimetable extends Component{
 			return (
 				<div className="timetable-element-wraper">
 					{this.state.timetable.map(timetable =>
-					<div className="timetable-element">
+					<div key={timetable.id} className="timetable-element">
 						<h3>Wizyta</h3>
 						<p>{formatDate(timetable.date)}</p>
-						<button className="timetable-element-button" onClick={() => {reserveAppointment(this.timetable.id); window.location.reload(false)}}>Umów się na wizytę</button>
+						<button className="timetable-element-button" onClick={() => {reserveAppointment(timetable.id);window.location.reload(false)}}>Umów się na wizytę</button>
 					</div>)}
 				</div>
             )

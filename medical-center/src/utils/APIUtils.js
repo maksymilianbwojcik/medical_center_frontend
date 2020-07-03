@@ -114,7 +114,7 @@ export function getAvailableTimetable(username) {
 
 export function reserveAppointment(appointmentId) {
     return request({
-        url: API_BASE_URL + `/reserveAppointment`,
+        url: API_BASE_URL + `/timetable/reserveAppointment`,
         method: 'POST',
         body: JSON.stringify(appointmentId)
     });
