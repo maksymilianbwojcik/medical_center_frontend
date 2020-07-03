@@ -45,14 +45,14 @@ class DoctorInfo extends Component{
                  <br></br><br></br><br></br>
                  <div id="box1"><span><img className= "doctor-info-img" src="images/img_avatar.png" alt="" height="auto" width="auto"/></span></div>
                     <h1>{this.state.data.title}</h1><h2>{this.state.data.name + " " + this.state.data.surname}<br></br><span className="byline">{ this.state.data.specialization}</span></h2>
-                    <hr class="new1"></hr>
+                    <hr className="new1"></hr>
                     <br></br><br></br>
                     <h3>Kalendarz przyjęć</h3>
                     <div>
                         <AvailableTimetable info={this.state.user.username}></AvailableTimetable>
                     </div>
                     <br></br><br></br>
-                    <hr class="new1"></hr>    
+                    <hr className="new1"></hr>    
                 </div>
                 </div>
             );
