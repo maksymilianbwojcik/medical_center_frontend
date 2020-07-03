@@ -36,8 +36,8 @@ class DoctorList extends Component{
                 <div><span className="arrow-down"></span></div>
                 <br></br>
                     {this.state.data.map(resp =>
-                <span><img className= "doctor-img" src="images/img_avatar.png" alt="" height="auto" width="auto" />
-                <a key={resp.id} href={"http://localhost:3000/doctor/"+ resp.id}>{resp.title +" "+ resp.name + " " + resp.surname}</a><span className="byline">{resp.specialization }</span></span>)}
+                <span key={resp.id}><img className= "doctor-img" src="images/img_avatar.png" alt="" height="auto" width="auto" />
+                <a href={"http://localhost:3000/doctor/"+ resp.id}>{resp.title +" "+ resp.name + " " + resp.surname}</a><span className="byline">{resp.specialization }</span></span>)}
                 </div>
             </div>
         );
