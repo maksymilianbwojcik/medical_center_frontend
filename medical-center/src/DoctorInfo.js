@@ -8,6 +8,7 @@ class DoctorInfo extends Component{
     state = {
         data: Object,
         user: Object,
+        canRender: false
     }
 
     componentDidMount() {
@@ -25,7 +26,9 @@ class DoctorInfo extends Component{
             })
             .catch(error => {
                 console.log(error);
-            });
+        });
+        this.setState({canRender: true});
+        
     }
 
     componentWillUnmount() {
@@ -34,7 +37,8 @@ class DoctorInfo extends Component{
 
     render(){
         //todo timetalbe!!!!!
-        return (
+        if (this.state.canRender){
+            return (
             <div id="page">
                 <div id="doctor-info-wrapper">
                  <div><span className="arrow-down"></span></div>
@@ -48,10 +52,18 @@ class DoctorInfo extends Component{
                         <AvailableTimetable info={this.state.user.username}></AvailableTimetable>
                     </div>
                     <br></br><br></br>
-                    <hr class="new1"></hr>
+                    <hr class="new1"></hr>    
                 </div>
-            </div>
-        );
+                </div>
+            );
+        }
+        else{
+            return (
+                <div id="doctor-info-wraper">
+                    <p>Brak danych o doktorze</p>
+                </div>
+            );
+        }
     }
 }
 

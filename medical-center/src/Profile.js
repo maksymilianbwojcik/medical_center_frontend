@@ -7,7 +7,7 @@ import LoadingIndicator  from './common/LoadingIndicator';
 import NotFound from './common/NotFound';
 import ServerError from './common/ServerError';
 
-const TabPane = Tabs.TabPane;
+//const TabPane = Tabs.TabPane;
 
 class Profile extends Component {
     constructor(props) {

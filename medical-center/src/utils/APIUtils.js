@@ -104,9 +104,18 @@ export function getNews() {
     });
 }
 
+//AvailableTimetable
 export function getAvailableTimetable(username) {
     return request({
         url: API_BASE_URL + `/timetable/doctors/${username}`,
         method: 'GET'
+    });
+}
+
+export function reserveAppointment(appointmentId) {
+    return request({
+        url: API_BASE_URL + `/timetable/reserveAppointment`,
+        method: 'POST',
+        body: JSON.stringify(appointmentId)
     });
 }

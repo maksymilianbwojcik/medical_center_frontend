@@ -128,7 +128,7 @@ class App extends Component {
                             <Route path="/users/:username"
                                    render={(props) => <Profile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} {...props}  />}>
                             </Route>
-                            <Route path="/doctor/:doctorId" component={DoctorInfo} currentUser={this.state.currentUser}/>
+                            <Route path="/doctor/:doctorId" render={(props) => <DoctorInfo currentUser={this.state.currentUser} {...props}  />}/>
 
                             <Route component={NotFound}/>
                         </Switch>
