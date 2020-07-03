@@ -125,9 +125,11 @@ class App extends Component {
                             <Route path="/usertimetable" component={UserTimetable}/>
                             <Route path="/doctors" component={DoctorList}/>
                             <Route path="/news" component={News}/>
+
                             <Route path="/users/:username"
                                    render={(props) => <Profile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} {...props}  />}>
                             </Route>
+
                             <Route path="/doctor/:doctorId" render={(props) => <DoctorInfo currentUser={this.state.currentUser} {...props}  />}/>
 
                             <Route component={NotFound}/>

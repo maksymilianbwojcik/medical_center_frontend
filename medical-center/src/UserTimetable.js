@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import Question from './Question';
-import {getQuestions} from './utils/APIUtils';
+import Question from "./Question";
+import { getUserTimetable } from './utils/APIUtils';
+import Timetable from "./Timetable";
 
 class UserTimetable extends Component{
     _isMounted = false;
@@ -12,7 +13,7 @@ class UserTimetable extends Component{
     componentDidMount() {
         this._isMounted = true;
 
-        getQuestions()
+        getUserTimetable()
             .then(response => {
                 console.log(response);
                 if(this._isMounted === true) {
@@ -31,11 +32,10 @@ class UserTimetable extends Component{
     }
 
     render(){
-        console.log(this.state.data);
         return (
-            <div id="faq-wraper">
-                {this.state.data.map(question =>
-                <Question info={question}/>)}
+            <div>
+                {this.state.data.map(timetable =>
+                    <Timetable info={timetable}/>)}
             </div>
         );
     }

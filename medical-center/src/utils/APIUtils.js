@@ -119,3 +119,10 @@ export function reserveAppointment(appointmentId) {
         body: JSON.stringify(appointmentId)
     });
 }
+
+export function getUserTimetable() {
+    return request({
+        url: API_BASE_URL + '/timetable/myAppointments',
+        method: 'GET'
+    })
+}
