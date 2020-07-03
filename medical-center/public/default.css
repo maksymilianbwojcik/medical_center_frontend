@@ -358,7 +358,7 @@
 	
 	#page .title
 	{
-		padding: 3em 0em;
+		padding: 0.5em 0em;
 		letter-spacing: 0.20em;
 		text-align: center;
 		text-transform: uppercase;
@@ -713,3 +713,180 @@
 	.closebtn:hover {
 		color: black;
 	}
+
+	/*********************************************************************************/
+	/* doctor-wrapper                                                                */
+	/*********************************************************************************/
+
+	#doctor-wrapper
+	{
+		position: relative;
+		overflow: hidden;
+		width: 950px;
+		padding: 0em 75px 2em 75px;
+		background: #ffffff url(public/images/bg01.png) repeat;
+		font-size: 50px;
+		border-style: solid;
+		border-color: #F4F4F4;
+		border-width: 1px;
+		border-radius: 18px;
+		line-height: 0.4;
+	}
+	
+	#doctor-wrapper a
+	{
+		display: block;
+		padding: 0em 2em;
+		line-height: 80px;
+		letter-spacing: 1px;
+		text-align: center;
+		font-size: 0.5em;
+		font-weight: 700;
+		color: #01A9DC;
+		text-decoration: underline;
+
+	}
+
+	#doctor-wrapper .byline
+	{
+		display: block;
+		line-height: 80px;
+		letter-spacing: 1px;
+		text-align: center;
+		text-decoration: none;
+		font-size: 0.4em;
+		font-weight: 400;
+		color: #858585;
+	}
+
+	#doctor-wrapper .arrow-down {
+		border-top-color: #F4F4F4 !important;
+	}
+
+	.arrow-down {
+		margin: 0 auto;
+		width:0;
+		height:0;
+		border-top: 40px solid #FFF;
+		border-left: 50px solid transparent;
+		border-right: 50px solid transparent;
+		display: block;
+		text-align: center;
+	}
+
+	#doctor-wrapper .doctor-img {
+		position: relative;
+		display: block;
+		margin: 0.5em auto 0.1em auto;
+		line-height: 50px;
+		font-size: 4em;
+		background: #FFF;
+		width: 150px;
+		height: 150px;
+		border-radius: 100px;
+		border: 6px solid #00A4D9;
+		text-align: center;
+		color: #00A4D9;
+		border-radius: 50%;
+	  }
+
+/*********************************************************************************/
+/* doctor-info-wrapper                                                                */
+/*********************************************************************************/
+
+	#doctor-info-wrapper  
+	{
+		overflow: hidden;
+		width: 1000px;
+		padding: 0em 50px 5em 50px;
+		background: #F4F4F4;
+		color: #191919;
+	}
+
+	#doctor-info-wrapper .byline
+	{
+		display: block;
+		line-height: 80px;
+		letter-spacing: 1px;
+		text-align: left;
+		text-decoration: none;
+		font-size: 0.5em;
+		font-weight: 400;
+		color: #858585;
+	}
+
+	#doctor-info-wrapper h3
+	{
+		font-size: 2em;
+		color: #acacac;
+		font-weight: 400;
+	}
+
+	#doctor-info-wrapper h2
+	{
+		font-size: 2.2em;
+		color: #5f5f5f;
+	}
+
+	#doctor-info-wrapper h1
+	{
+		font-size: 2em;
+		color: #acacac;
+		font-weight: 400;
+	}
+
+	
+	#doctor-info-wrapper .arrow-down {
+		border-top-color: #292929 !important;
+	}
+
+	.arrow-down {
+		margin: 0 auto;
+		width:0;
+		height:0;
+		border-top: 40px solid #FFF;
+		border-left: 50px solid transparent;
+		border-right: 50px solid transparent;
+		display: block;
+		text-align: center;
+	}
+
+	#doctor-info-wrapper #box1
+	{
+		float: left;
+		width: 250px;
+		height:500px;
+	}
+
+	#doctor-info-wrapper .doctor-info-img {
+		position: relative;
+		display: block;
+		margin: 0.5em auto 0.1em auto;
+		line-height: 50px;
+		font-size: 4em;
+		background: #FFF;
+		width: 150px;
+		height: 150px;
+		border-radius: 100px;
+		border: 6px solid #00A4D9;
+		text-align: center;
+		color: #00A4D9;
+		border-radius: 50%;
+	  }
+
+	  hr.new1{
+		border-top: 1px solid#b9b9b9;
+	  }
+
+	 #doctor-info-wrapper .icon
+	  {
+		  position: relative;
+		  display: block;
+		  margin: 0px auto 0.80em auto;
+		  line-height: 150px;
+		  font-size: 4em;
+		  width: 150px;
+		  height: 150px;
+		  text-align: center;
+		  color: #00A4D9;
+	  }
