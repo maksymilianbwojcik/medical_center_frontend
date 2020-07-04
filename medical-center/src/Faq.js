@@ -33,7 +33,11 @@ class Faq extends Component{
     render(){
         console.log(this.state.data);
         return (
-            <div id="faq-wraper">
+            <div id="faq-wrapper">
+
+                <div><span className="arrow-down"></span></div>
+                <div className="title">NAJCZĘŚCIEJ ZADAWANE PYTANIA</div>
+                <br></br>
                 {this.state.data.map(question =>
                 <Question info={question}/>)}
             </div>

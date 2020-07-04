@@ -70,7 +70,7 @@ class Profile extends Component {
         }
 
         return (
-            <div className="profile">
+            <div id="profile">
                 {
                     this.state.user ? (
                         <div className="user-profile">
