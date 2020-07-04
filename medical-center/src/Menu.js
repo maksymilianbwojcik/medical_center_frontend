@@ -20,7 +20,7 @@ class CustomMenu extends Component{
             doctor: props.doctor
         }
     }
-    
+
     render(props){
         let menuItems;
         if(this.props.currentUser) {

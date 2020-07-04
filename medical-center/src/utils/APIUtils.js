@@ -127,6 +127,14 @@ export function getUserTimetable() {
     })
 }
 
+export function removeAppointment(appointmentId) {
+    return request({
+        url: API_BASE_URL + '/timetable/client/removeAppointment',
+        method: 'POST',
+        body: JSON.stringify(appointmentId)
+    })
+}
+
 //AdminPanel
 
 //todo
