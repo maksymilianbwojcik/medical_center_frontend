@@ -347,7 +347,7 @@
 	{
 		overflow: hidden;
 		width: 1100px;
-		padding: 0em 50px 5em 50px;
+		padding: 0em 50px 0em 50px;
 		background: #F4F4F4;
 		color: #191919;
 	}
@@ -890,3 +890,71 @@
 		  text-align: center;
 		  color: #00A4D9;
 	  }
+
+/*********************************************************************************/
+/* timetable-element-wrapper                                                                */
+/*********************************************************************************/
+
+	#timetable-element-wrapper  
+	{
+		overflow: hidden;
+		width: 1000px;
+		padding: 0em 10px 0em 0px;
+		background: #F4F4F4;
+		color: #191919;
+	}
+
+	#timetable-element-wrapper .byline
+	{
+		display: block;
+		line-height: 10px;
+		letter-spacing: 1px;
+		text-align: left;
+		text-decoration: none;
+		font-size: 0.5em;
+		font-weight: 400;
+		color: #858585;
+	}
+
+	#timetable-element-wrapper h3
+	{
+		font-size: 2em;
+		color: #acacac;
+		font-weight: 400;
+	}
+
+	#timetable-element-wrapper h2
+	{
+		font-size: 1.2em;
+		color: #5f5f5f;
+	}
+
+	#timetable-element-wrapper h1
+	{
+		font-size: 1em;
+		color: #acacac;
+		font-weight: 400;
+	}
+
+	#timetable-element-wrapper p
+	{
+		font-size: 1em;
+		color: #313131;
+		font-weight: 400;
+	}
+
+	#timetable-element-wrapper button {
+		background-color: #4CAF50;
+		border: none;
+		color: white;
+		width: 350px;
+		padding: 10px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+	}
+
+	.button {
+		color: white;
+	}

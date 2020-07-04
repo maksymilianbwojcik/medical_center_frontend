@@ -58,12 +58,14 @@ class AvailableTimetable extends Component{
     render(){
         if(this.state.canRender){
 			return (
-				<div className="timetable-element-wraper">
+				<div id="timetable-element-wrapper">
+                    <div className="title"><h2>Dostępne wizyty</h2></div>
+                    <br></br>
 					{this.state.timetable.map(timetable =>
 					<div key={timetable.id} className="timetable-element">
-						<h3>Wizyta</h3>
+						<h1>Wizyta</h1>
 						<p>{formatDate(timetable.date)}</p>
-						<button className="timetable-element-button" onClick={() => {reserveAppointment(timetable.id);window.location.reload(false)}}>Umów się na wizytę</button>
+						<button class="button" onClick={() => {reserveAppointment(timetable.id);window.location.reload(false)}}>Umów się na wizytę</button>
 					</div>)}
 				</div>
             )
