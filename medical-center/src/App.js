@@ -25,6 +25,7 @@ import AdminPanel from "./AdminPanel";
 import { Layout, notification } from 'antd';
 import DoctorInfo from './DoctorInfo';
 import { Redirect, useHistory } from "react-router-dom";
+import Contact from "./Contact";
 
 const { Content } = Layout;
 
@@ -137,8 +138,8 @@ class App extends Component {
                             <Route path="/news" component={News}/>
                             { this.state.admin == true && (
                                 <Route path="/admin" component={AdminPanel}/>
-                            )}   
-
+                            )}
+                            <Route path="/contact" component={Contact}/>
                             <Route path="/users/:username"
                                    render={(props) => <Profile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} {...props}  />}>
                             </Route>

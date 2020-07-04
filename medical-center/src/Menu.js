@@ -67,7 +67,6 @@ class CustomMenu extends Component{
                         <li><Link to="/doctors">Nasi lekarze</Link></li>
                     )}
                     <li><Link to="/news">Aktualności</Link></li>
-                    <li><Link to="/about">O nas</Link></li>
                     <li><Link to="/faq">FAQ</Link></li>
                     <li><Link to="/contact">Kontakt</Link></li>
                     <li>
