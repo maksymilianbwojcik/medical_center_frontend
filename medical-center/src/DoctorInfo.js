@@ -36,23 +36,21 @@ class DoctorInfo extends Component{
     }
 
     render(){
-        //todo timetalbe!!!!!
+        //todo timetable!!!!!, dont show if not auth availabletimetable
         if (this.state.canRender){
             return (
             <div id="page">
                 <div id="doctor-info-wrapper">
                  <div><span className="arrow-down"></span></div>
-                 <br></br><br></br><br></br>
+                 <br></br><br></br>
                  <div id="box1"><span><img className= "doctor-info-img" src="images/img_avatar.png" alt="" height="auto" width="auto"/></span></div>
                     <h1>{this.state.data.title}</h1><h2>{this.state.data.name + " " + this.state.data.surname}<br></br><span className="byline">{ this.state.data.specialization}</span></h2>
                     <hr className="new1"></hr>
-                    <br></br><br></br>
-                    <h3>Kalendarz przyjęć</h3>
+                    <br></br>
+                    <h4>Aby umówić się na wizytę z naszym specjalistą, upewnij się, że jesteś zarejestrowany oraz zalogowany w naszym systemie. Poniżej znajdziesz dostępne terminy, w jakich przyjmuje wybrany specjalista. <br></br> Aby zarezerwować wybrany termin - kliknij na jedną z poniższych pozycji:</h4>
                     <div>
                         <AvailableTimetable info={this.state.user.username}></AvailableTimetable>
-                    </div>
-                    <br></br><br></br>
-                    <hr className="new1"></hr>    
+                    </div> 
                 </div>
                 </div>
             );

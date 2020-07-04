@@ -21,10 +21,10 @@ import Footer from "./Footer";
 import UserTimetable from "./UserTimetable";
 import DoctorList from "./DoctorList";
 import News from "./News";
-
-
+import AdminPanel from "./AdminPanel";
 import { Layout, notification } from 'antd';
 import DoctorInfo from './DoctorInfo';
+
 const { Content } = Layout;
 
 class App extends Component {
@@ -33,7 +33,10 @@ class App extends Component {
         this.state = {
             currentUser: null,
             isAuthenticated: false,
-            isLoading: false
+            isLoading: false,
+            doctor: false,
+            client: false,
+            admin: false
         }
 
         this.handleLogout = this.handleLogout.bind(this);
@@ -56,7 +59,9 @@ class App extends Component {
                 this.setState({
                     currentUser: response,
                     isAuthenticated: true,
-                    isLoading: false
+                    isLoading: false,
+                    doctor: response.doctor,
+                    client: response.client,
                 });
             }).catch(error => {
             this.setState({
@@ -115,6 +120,8 @@ class App extends Component {
 
                         <CustomMenu isAuthenticated={this.state.isAuthenticated}
                                     currentUser={this.state.currentUser}
+                                    client={this.state.client}
+                                    doctor={this.state.doctor}
                                     onLogout={this.handleLogout} />
 
                         <Switch>
@@ -125,12 +132,17 @@ class App extends Component {
                             <Route path="/usertimetable" component={UserTimetable}/>
                             <Route path="/doctors" component={DoctorList}/>
                             <Route path="/news" component={News}/>
+                            { this.state.admin == true && (
+                                <Route path="/admin" component={AdminPanel}/>
+                            )}   
 
                             <Route path="/users/:username"
                                    render={(props) => <Profile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} {...props}  />}>
                             </Route>
-
+                            
+                            { this.state.client == true && (
                             <Route path="/doctor/:doctorId" render={(props) => <DoctorInfo currentUser={this.state.currentUser} {...props}  />}/>
+                            )}
 
                             <Route component={NotFound}/>
                         </Switch>

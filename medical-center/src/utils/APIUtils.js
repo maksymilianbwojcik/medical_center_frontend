@@ -126,3 +126,14 @@ export function getUserTimetable() {
         method: 'GET'
     })
 }
+
+//AdminPanel
+
+//todo
+export function addDoctor(appointmentId) {
+    return request({
+        url: API_BASE_URL + `/timetable/reserveAppointment`,
+        method: 'POST',
+        body: JSON.stringify(appointmentId)
+    });
+}

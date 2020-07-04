@@ -32,6 +32,7 @@ class UserTimetable extends Component{
     }
 
     render(){
+        console.log(this.state.data)
         return (
             <div>
                 <h3>Wizyty</h3>

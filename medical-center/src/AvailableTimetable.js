@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {getAvailableTimetable, reserveAppointment} from './utils/APIUtils';
-import { formatDate } from './utils/Helpers';
+import Moment from 'react-moment';
 
 class AvailableTimetable extends Component{
     constructor(props){
@@ -58,12 +58,14 @@ class AvailableTimetable extends Component{
     render(){
         if(this.state.canRender){
 			return (
-				<div className="timetable-element-wraper">
+				<div id="timetable-element-wrapper">
+                    <div className="title"><h2>Dostępne wizyty</h2></div>
+                    <br></br>
 					{this.state.timetable.map(timetable =>
 					<div key={timetable.id} className="timetable-element">
 						<h3>Wizyta</h3>
-						<p>{formatDate(timetable.date)}</p>
-						<button className="timetable-element-button" onClick={() => {reserveAppointment(timetable.id);window.location.reload(false)}}>Umów się na wizytę</button>
+						<p><Moment format="DD.MM.YYYY HH:mm">{timetable.date}</Moment></p>
+						<button className="timetable-element-button" onClick={() => {reserveAppointment(timetable.id); window.location.reload(false)}}>Umów się na wizytę</button>
 					</div>)}
 				</div>
             )

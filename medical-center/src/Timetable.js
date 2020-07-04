@@ -5,7 +5,6 @@ import moment from "moment";
 class Timetable extends Component{
 
     render(props){
-
         return (
             <div>
                 <div id="page">

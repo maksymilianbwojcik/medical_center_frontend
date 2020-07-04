@@ -29,6 +29,7 @@ class DoctorList extends Component{
     }
 
     render(){
+        //todo dont show if not client
         return (
             <div id="page">
                 <div className="title">
