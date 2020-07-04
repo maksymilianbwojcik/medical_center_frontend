@@ -12,7 +12,6 @@ class News extends Component{
     }
 
     componentDidMount() {
-        /*
         this._isMounted = true;
 
         getNews()
@@ -26,7 +25,7 @@ class News extends Component{
             })
             .catch(error => {
                 console.log(error);
-            });*/
+            });
     }
 
     componentWillUnmount() {
