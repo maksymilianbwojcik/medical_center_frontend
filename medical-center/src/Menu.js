@@ -25,7 +25,7 @@ class CustomMenu extends Component{
         }
     }
 
-    render(){
+    render(props){
         let menuItems;
         if(this.props.currentUser) {
             menuItems = [
@@ -76,15 +76,17 @@ function ProfileDropdownMenu(props) {
                 <Link to={`/users/${props.currentUser.username}`}>Profil</Link>
             </Menu.Item>
 
-            { props.currentUser.client == true && props.currentUser.doctor == true && (
+            { (props.currentUser.client == true || props.currentUser.doctor == true) && (
             <Menu.Item key="usertimetable" className="dropdown-item">
                 <Link to={`/usertimetable`}>Terminarz wizyt</Link>
             </Menu.Item>
             )}
-
+            
+            { props.currentUser.admin== true && (
             <Menu.Item key="adminpanel" className="dropdown-item">
                 <Link to={`/admin`}>Panel Admina</Link>
             </Menu.Item>
+            )}
 
             <Menu.Item key="logout" className="dropdown-item">
                 <Link to={`/`}>Wyloguj</Link>

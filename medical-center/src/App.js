@@ -109,7 +109,6 @@ class App extends Component {
         if(this.state.isLoading) {
             return <LoadingIndicator />
         }
-        console.log(this.state.client);
         return (
             <Layout>
                 <div id="logo" className="container">
@@ -121,6 +120,8 @@ class App extends Component {
 
                         <CustomMenu isAuthenticated={this.state.isAuthenticated}
                                     currentUser={this.state.currentUser}
+                                    client={this.state.client}
+                                    doctor={this.state.doctor}
                                     onLogout={this.handleLogout} />
 
                         <Switch>
