@@ -63,7 +63,7 @@ class CustomMenu extends Component{
             <div id="menu" className="container">
                 <ul>
                     <li className="current_page_item"><Link to="/">Strona główna</Link></li>
-                    { this.state.client == true && (
+                    { this.state.doctor != true && (
                         <li><Link to="/doctors">Nasi lekarze</Link></li>
                     )}
                     <li><Link to="/news">Aktualności</Link></li>

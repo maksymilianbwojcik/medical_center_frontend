@@ -3,13 +3,17 @@ import {getDoctor} from './utils/APIUtils';
 import AvailableTimetable from './AvailableTimetable';
 
 class DoctorInfo extends Component{
-    _isMounted = false;
-
-    state = {
-        data: Object,
-        user: Object,
-        canRender: false
+    constructor(props){
+        super(props)
+        this.state = {
+            data: Object,
+            user: Object,
+            canRender: false,
+            client: props.client,
+            doctor: props.doctor,
+        }
     }
+    _isMounted = false;
 
     componentDidMount() {
         const {match: {params}} = this.props;
@@ -48,9 +52,11 @@ class DoctorInfo extends Component{
                     <hr className="new1"/>
                     <br/>
                     <h4>Aby umówić się na wizytę z naszym specjalistą, upewnij się, że jesteś zarejestrowany oraz zalogowany w naszym systemie. Poniżej znajdziesz dostępne terminy, w jakich przyjmuje wybrany specjalista. <br/> Aby zarezerwować wybrany termin - kliknij na jedną z poniższych pozycji:</h4>
-                    <div>
-                        <AvailableTimetable info={this.state.user.username}/>
-                    </div> 
+                    { this.state.client == true && (
+                        <div>
+                            <AvailableTimetable info={this.state.user.username}/>
+                        </div> 
+                    )}
                 </div>
                 </div>
             );

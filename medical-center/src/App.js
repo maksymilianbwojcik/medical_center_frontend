@@ -36,7 +36,7 @@ class App extends Component {
             isLoading: false,
             doctor: false,
             client: false,
-            admin: false
+            admin: false,
         }
 
         this.handleLogout = this.handleLogout.bind(this);
@@ -62,6 +62,7 @@ class App extends Component {
                     isLoading: false,
                     doctor: response.doctor,
                     client: response.client,
+                    admin: response.admin
                 });
             }).catch(error => {
             this.setState({
@@ -106,6 +107,7 @@ class App extends Component {
 */
 
     render() {
+        console.log(this.state.currentUser);
         if(this.state.isLoading) {
             return <LoadingIndicator />
         }
@@ -140,8 +142,8 @@ class App extends Component {
                                    render={(props) => <Profile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} {...props}  />}>
                             </Route>
                             
-                            { this.state.client == true && (
-                            <Route path="/doctor/:doctorId" render={(props) => <DoctorInfo currentUser={this.state.currentUser} {...props}  />}/>
+                            { this.state.doctor != true && (
+                            <Route path="/doctor/:doctorId" render={(props) => <DoctorInfo currentUser={this.state.currentUser} client={this.state.client} doctor={this.state.doctor} {...props}  />}/>
                             )}
 
                             <Route component={NotFound}/>
