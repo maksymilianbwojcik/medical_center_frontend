@@ -34,6 +34,7 @@ class UserTimetable extends Component{
     render(){
         return (
             <div>
+                <h3>Wizyty</h3>
                 {this.state.data.map(timetable =>
                     <Timetable info={timetable}/>)}
             </div>
