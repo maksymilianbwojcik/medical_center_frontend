@@ -13,6 +13,10 @@ class CustomMenu extends Component{
     constructor(props) {
         super(props);
         this.handleMenuClick = this.handleMenuClick.bind(this);
+        this.state = {
+            client: props.client,
+            doctor: props.doctor
+        }
     }
 
     handleMenuClick({ key }) {
@@ -47,7 +51,9 @@ class CustomMenu extends Component{
             <div id="menu" className="container">
                 <ul>
                     <li className="current_page_item"><Link to="/">Strona główna</Link></li>
-                    <li><Link to="/doctors">Nasi lekarze</Link></li>
+                    { this.state.client == true && (
+                        <li><Link to="/doctors">Nasi lekarze</Link></li>
+                    )}
                     <li><Link to="/news">Aktualności</Link></li>
                     <li><Link to="/about">O nas</Link></li>
                     <li><Link to="/faq">FAQ</Link></li>
