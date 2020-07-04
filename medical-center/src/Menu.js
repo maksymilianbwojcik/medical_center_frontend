@@ -76,9 +76,11 @@ function ProfileDropdownMenu(props) {
                 <Link to={`/users/${props.currentUser.username}`}>Profil</Link>
             </Menu.Item>
 
+            { props.currentUser.client == true && props.currentUser.doctor == true && (
             <Menu.Item key="usertimetable" className="dropdown-item">
                 <Link to={`/usertimetable`}>Terminarz wizyt</Link>
             </Menu.Item>
+            )}
 
             <Menu.Item key="adminpanel" className="dropdown-item">
                 <Link to={`/admin`}>Panel Admina</Link>
