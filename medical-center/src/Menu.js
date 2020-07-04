@@ -67,15 +67,19 @@ function ProfileDropdownMenu(props) {
     const dropdownMenu = (
         <Menu onClick={props.handleMenuClick} mode="horizontal">
             <Menu.Item key="profile" className="dropdown-item">
-                <Link to={`/users/${props.currentUser.username}`}>Profile</Link>
+                <Link to={`/users/${props.currentUser.username}`}>Profil</Link>
             </Menu.Item>
 
             <Menu.Item key="usertimetable" className="dropdown-item">
-                <Link to={`/usertimetable`}>Timetable</Link>
+                <Link to={`/usertimetable`}>Terminarz wizyt</Link>
+            </Menu.Item>
+
+            <Menu.Item key="adminpanel" className="dropdown-item">
+                <Link to={`/admin`}>Panel Admina</Link>
             </Menu.Item>
 
             <Menu.Item key="logout" className="dropdown-item">
-                <Link to={`/`}>Logout</Link>
+                <Link to={`/`}>Wyloguj</Link>
             </Menu.Item>
         </Menu>
     );

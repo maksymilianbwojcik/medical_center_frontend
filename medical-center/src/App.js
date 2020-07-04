@@ -21,10 +21,10 @@ import Footer from "./Footer";
 import UserTimetable from "./UserTimetable";
 import DoctorList from "./DoctorList";
 import News from "./News";
-
-
+import AdminPanel from "./AdminPanel";
 import { Layout, notification } from 'antd';
 import DoctorInfo from './DoctorInfo';
+
 const { Content } = Layout;
 
 class App extends Component {
@@ -33,7 +33,7 @@ class App extends Component {
         this.state = {
             currentUser: null,
             isAuthenticated: false,
-            isLoading: false
+            isLoading: false,
         }
 
         this.handleLogout = this.handleLogout.bind(this);
@@ -125,9 +125,12 @@ class App extends Component {
                             <Route path="/usertimetable" component={UserTimetable}/>
                             <Route path="/doctors" component={DoctorList}/>
                             <Route path="/news" component={News}/>
+                            <Route path="/admin" component={AdminPanel}/>
+
                             <Route path="/users/:username"
                                    render={(props) => <Profile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} {...props}  />}>
                             </Route>
+
                             <Route path="/doctor/:doctorId" render={(props) => <DoctorInfo currentUser={this.state.currentUser} {...props}  />}/>
 
                             <Route component={NotFound}/>

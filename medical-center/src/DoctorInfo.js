@@ -36,7 +36,7 @@ class DoctorInfo extends Component{
     }
 
     render(){
-        //todo timetalbe!!!!!
+        //todo timetable!!!!!, dont show if not auth availabletimetable
         if (this.state.canRender){
             return (
             <div id="page">
