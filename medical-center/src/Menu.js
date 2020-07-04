@@ -40,9 +40,9 @@ class CustomMenu extends Component{
                                     <Link to={`/admin`}>Panel Admina</Link>
                             )}
 
-                            <Link to="/" onClick={() => {this.props.onLogout()}}>
+                            <button onClick={() => {this.props.onLogout()}}>
                                 Logout
-                            </Link>
+                            </button>
                         </div>
                     </div>
                 </Menu.Item>
