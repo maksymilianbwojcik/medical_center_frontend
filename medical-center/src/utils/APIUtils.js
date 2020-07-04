@@ -145,3 +145,10 @@ export function addDoctor(appointmentId) {
         body: JSON.stringify(appointmentId)
     });
 }
+
+export function getAllClients() {
+    return request({
+        url: API_BASE_URL + "/clients/all",
+        method: 'GET'
+    });
+}
