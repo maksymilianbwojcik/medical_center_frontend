@@ -835,6 +835,13 @@
 		font-weight: 400;
 	}
 
+	#doctor-info-wrapper h4
+	{
+		font-size: 1.5em;
+		color: #acacac;
+		font-weight: 400;
+	}
+
 	
 	#doctor-info-wrapper .arrow-down {
 		border-top-color: #292929 !important;
@@ -899,7 +906,6 @@
 	{
 		overflow: hidden;
 		width: 1000px;
-		padding: 0em 10px 0em 0px;
 		background: #F4F4F4;
 		color: #191919;
 	}
@@ -934,6 +940,8 @@
 		font-size: 1em;
 		color: #acacac;
 		font-weight: 400;
+		padding: 10px 32px;
+		text-align: center;
 	}
 
 	#timetable-element-wrapper p
@@ -941,20 +949,34 @@
 		font-size: 1em;
 		color: #313131;
 		font-weight: 400;
+		padding: 0px 32px;
+		text-align: center;
 	}
 
 	#timetable-element-wrapper button {
-		background-color: #4CAF50;
+		background-color: #2d95f7;
 		border: none;
 		color: white;
 		width: 350px;
 		padding: 10px 32px;
 		text-align: center;
 		text-decoration: none;
-		display: inline-block;
+		display: block;
 		font-size: 16px;
+		margin-left:33%;
+		margin-right:67%;
 	}
 
 	.button {
 		color: white;
 	}
+
+	#timetable-element-wrapper .timetable-element {
+		border: none;
+		width: 1000px;
+		text-align: center;
+		text-decoration: none;
+		display: block;
+		font-size: 16px;
+	}
+
