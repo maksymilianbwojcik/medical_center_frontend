@@ -6,19 +6,14 @@ import {
 } from 'react-router-dom';
 import { Layout, Menu, Dropdown, Icon } from 'antd';
 import "./common/AppHeader.css";
+import {reserveAppointment} from "./utils/APIUtils";
+
 
 const Header = Layout.Header;
 
 class CustomMenu extends Component{
     constructor(props) {
         super(props);
-        this.handleMenuClick = this.handleMenuClick.bind(this);
-    }
-
-    handleMenuClick({ key }) {
-        if(key === "logout") {
-            this.props.onLogout();
-        }
     }
 
     render(){
@@ -26,9 +21,17 @@ class CustomMenu extends Component{
         if(this.props.currentUser) {
             menuItems = [
                 <Menu.Item key="/profile" className="profile-menu">
-                    <ProfileDropdownMenu
-                        currentUser={this.props.currentUser}
-                        handleMenuClick={this.handleMenuClick}/>
+                    <div className="dropdown">
+                        <Icon type="user" className="nav-icon" style={{marginRight: 0}} /> <Icon type="down" />
+                        <div className="dropdown-content">
+                            <Link to={`/users/${this.props.currentUser.username}`}>Profile</Link>
+                            <Link to={`/usertimetable`}>Timetable</Link>
+
+                            <Link to="/" onClick={() => {this.props.onLogout()}}>
+                                Logout
+                            </Link>
+                        </div>
+                    </div>
                 </Menu.Item>
             ];
         } else {
@@ -61,36 +64,6 @@ class CustomMenu extends Component{
             </div>
         );
     }
-}
-
-function ProfileDropdownMenu(props) {
-    const dropdownMenu = (
-        <Menu onClick={props.handleMenuClick} mode="horizontal">
-            <Menu.Item key="profile" className="dropdown-item">
-                <Link to={`/users/${props.currentUser.username}`}>Profile</Link>
-            </Menu.Item>
-
-            <Menu.Item key="usertimetable" className="dropdown-item">
-                <Link to={`/usertimetable`}>Timetable</Link>
-            </Menu.Item>
-
-            <Menu.Item key="logout" className="dropdown-item">
-                <Link to={`/`}>Logout</Link>
-            </Menu.Item>
-        </Menu>
-    );
-
-    return (
-        <Dropdown
-            overlay={dropdownMenu}
-            trigger={['click']}
-            getPopupContainer = { () => document.getElementsByClassName('profile-menu')[0]}>
-
-            <a onClick={e=>e.preventDefault()}>
-                <Icon type="user" className="nav-icon" style={{marginRight: 0}}/> <Icon type="down" />
-            </a>
-        </Dropdown>
-    );
 }
 
 export default CustomMenu;

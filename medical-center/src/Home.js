@@ -6,7 +6,6 @@ class Home extends Component{
     render(){
         return (
         <div id="home-wraper">
-            <News/>
             <div id="three-column" className="container">
                 <span className="arrow-down"></span>
                 <div id="tbox1"> <span className="icon icon-stethoscope"></span>
