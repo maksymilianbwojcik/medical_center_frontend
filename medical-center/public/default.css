@@ -898,7 +898,7 @@
 		  color: #00A4D9;
 	  }
 
-<<<<<<< HEAD
+
 	.dropbtn {
 		background-color: #4CAF50;
 		color: white;
@@ -938,7 +938,7 @@
 	.dropdown:hover .dropbtn {
 		background-color: #3e8e41;
 	}
-=======
+
 /*********************************************************************************/
 /* timetable-element-wrapper                                                                */
 /*********************************************************************************/
@@ -1021,4 +1021,51 @@
 		font-size: 16px;
 	}
 
->>>>>>> d02d334c92d94a00fd737ae043b192d2133c00df
+/*********************************************************************************/
+/* Question-wrapper				                                                     */
+/*********************************************************************************/
+	
+#question-wrapper{
+	text-align: left;
+	color: #00A4D9;
+	font-weight: 300;
+}
+
+#question-wrapper .quest{
+	font-size: 30px;
+}
+
+#question-wrapper .answer{
+	font-size: 20px;
+}
+
+#faq-wrapper{
+	text-align: center;
+	color: #313131;
+	background-color: #F4F4F4;
+	font-weight: 300;
+}
+
+#faq-wrapper .title{
+	font-size: 3em;
+	font-weight: 300;
+	padding: 0.5em 0em;
+	letter-spacing: 0.20em;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+#faq-wrapper .arrow-down {
+	border-top-color: #313131 !important;
+}
+
+.arrow-down {
+	margin: 0 auto;
+	width:0;
+	height:0;
+	border-top: 40px solid #FFF;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	display: block;
+	text-align: center;
+}
