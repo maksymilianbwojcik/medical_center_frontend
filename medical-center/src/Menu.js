@@ -14,22 +14,13 @@ const Header = Layout.Header;
 class CustomMenu extends Component{
     constructor(props) {
         super(props);
-<<<<<<< HEAD
-=======
-        this.handleMenuClick = this.handleMenuClick.bind(this);
+
         this.state = {
             client: props.client,
             doctor: props.doctor
         }
     }
-
-    handleMenuClick({ key }) {
-        if(key === "logout") {
-            this.props.onLogout();
-        }
->>>>>>> d02d334c92d94a00fd737ae043b192d2133c00df
-    }
-
+    
     render(props){
         let menuItems;
         if(this.props.currentUser) {
@@ -39,7 +30,15 @@ class CustomMenu extends Component{
                         <Icon type="user" className="nav-icon" style={{marginRight: 0}} /> <Icon type="down" />
                         <div className="dropdown-content">
                             <Link to={`/users/${this.props.currentUser.username}`}>Profile</Link>
-                            <Link to={`/usertimetable`}>Timetable</Link>
+
+                            {(this.props.currentUser.client == true || this.props.currentUser.doctor == true) &&
+                            (
+                                <Link to={`/usertimetable`}>Timetable</Link>
+                            )}
+
+                            { this.props.currentUser.admin== true && (
+                                    <Link to={`/admin`}>Panel Admina</Link>
+                            )}
 
                             <Link to="/" onClick={() => {this.props.onLogout()}}>
                                 Logout
@@ -82,45 +81,5 @@ class CustomMenu extends Component{
     }
 }
 
-<<<<<<< HEAD
-=======
-function ProfileDropdownMenu(props) {
-    const dropdownMenu = (
-        <Menu onClick={props.handleMenuClick} mode="horizontal">
-            <Menu.Item key="profile" className="dropdown-item">
-                <Link to={`/users/${props.currentUser.username}`}>Profil</Link>
-            </Menu.Item>
 
-            { (props.currentUser.client == true || props.currentUser.doctor == true) && (
-            <Menu.Item key="usertimetable" className="dropdown-item">
-                <Link to={`/usertimetable`}>Terminarz wizyt</Link>
-            </Menu.Item>
-            )}
-            
-            { props.currentUser.admin== true && (
-            <Menu.Item key="adminpanel" className="dropdown-item">
-                <Link to={`/admin`}>Panel Admina</Link>
-            </Menu.Item>
-            )}
-
-            <Menu.Item key="logout" className="dropdown-item">
-                <Link to={`/`}>Wyloguj</Link>
-            </Menu.Item>
-        </Menu>
-    );
-
-    return (
-        <Dropdown
-            overlay={dropdownMenu}
-            trigger={['click']}
-            getPopupContainer = { () => document.getElementsByClassName('profile-menu')[0]}>
-
-            <a onClick={e=>e.preventDefault()}>
-                <Icon type="user" className="nav-icon" style={{marginRight: 0}}/> <Icon type="down" />
-            </a>
-        </Dropdown>
-    );
-}
-
->>>>>>> d02d334c92d94a00fd737ae043b192d2133c00df
 export default CustomMenu;
