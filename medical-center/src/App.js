@@ -24,6 +24,7 @@ import News from "./News";
 import AdminPanel from "./AdminPanel";
 import { Layout, notification } from 'antd';
 import DoctorInfo from './DoctorInfo';
+import { Redirect, useHistory } from "react-router-dom";
 
 const { Content } = Layout;
 
@@ -88,7 +89,7 @@ class App extends Component {
             message: 'Medishield',
             description: description,
         });
-        // this.props.history.push('/signup');
+        this.props.history.push('/signup');
     }
 
     handleLogin() {
@@ -97,7 +98,7 @@ class App extends Component {
             description: "Udało Ci się zalogować.",
         });
         this.loadCurrentUser();
-        this.history.push("/");
+        this.props.history.push('/');
     }
 /*
                 <div id="page-wraper">
@@ -158,4 +159,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default withRouter(App);
