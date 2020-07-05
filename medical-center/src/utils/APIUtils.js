@@ -136,14 +136,18 @@ export function removeAppointment(appointmentId) {
 }
 
 //AdminPanel
-
-//todo
-export function addDoctor(appointmentId) {
+export function addDoctor(id, name, surname, specialization, title) {
     return request({
-        url: API_BASE_URL + `/timetable/reserveAppointment`,
+        url: API_BASE_URL + '/setToDoctor',
         method: 'POST',
-        body: JSON.stringify(appointmentId)
-    });
+        body: JSON.stringify({
+            "id": id,
+            "name": name,
+            "surname": surname,
+            "specialization": specialization,
+            "title": title
+        })
+    })
 }
 
 export function getAllClients() {
