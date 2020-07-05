@@ -1,18 +1,18 @@
-import React, {Component} from 'react';
-import { getUserTimetable } from './utils/APIUtils';
-import Timetable from "./Timetable";
+import React, {Component} from "react";
+import {getAllResults} from "./utils/APIUtils";
+import SingleResult from "./SingleResult";
 
-class UserTimetable extends Component{
+class Result extends Component{
     _isMounted = false;
 
     state = {
-            data: [],
+        data: [],
     }
 
     componentDidMount() {
         this._isMounted = true;
 
-        getUserTimetable()
+        getAllResults()
             .then(response => {
                 console.log(response);
                 if(this._isMounted === true) {
@@ -34,14 +34,13 @@ class UserTimetable extends Component{
         console.log(this.state.data)
         return (
             <div>
-                <h3>Wizyty</h3>
-                <a href={'/results'}>Moje wyniki</a>
+                <h3>Wszystkie wyniki</h3>
 
-                {this.state.data.map(timetable =>
-                    <Timetable info={timetable}/>)}
+                {this.state.data.map(result =>
+                    <SingleResult info={result}/>)}
             </div>
         );
     }
 }
 
-export default UserTimetable;
+export default Result;

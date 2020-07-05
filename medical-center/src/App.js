@@ -22,10 +22,11 @@ import UserTimetable from "./UserTimetable";
 import DoctorList from "./DoctorList";
 import News from "./News";
 import AdminPanel from "./AdminPanel";
-import { Layout, notification } from 'antd';
+import {Layout, notification} from 'antd';
 import DoctorInfo from './DoctorInfo';
 import { Redirect, useHistory } from "react-router-dom";
 import Contact from "./Contact";
+import Result from "./Results";
 
 const { Content } = Layout;
 
@@ -136,6 +137,8 @@ class App extends Component {
                             <Route path="/usertimetable" component={UserTimetable}/>
                             <Route path="/doctors" component={DoctorList}/>
                             <Route path="/news" component={News}/>
+                            <Route path="/results" component={Result}/>
+
                             { this.state.admin == true && (
                                 <Route path="/admin" component={AdminPanel}/>
                             )}

@@ -156,3 +156,10 @@ export function getAllClients() {
         method: 'GET'
     });
 }
+
+export function getAllResults() {
+    return request({
+        url: API_BASE_URL + "/results/myResults",
+        method: 'GET'
+    })
+}
