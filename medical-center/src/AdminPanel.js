@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {getAllClients, addDoctor} from './utils/APIUtils';
-import Combobox from 'react-widgets/lib/Combobox'
 import 'react-widgets/dist/css/react-widgets.css';
+import DropdownList from 'react-widgets/lib/DropdownList'
 
 class AdminPanel extends Component{
     _isMounted = false;
@@ -17,7 +17,7 @@ class AdminPanel extends Component{
             .then(response => {
                 if(this._isMounted === true) {
                     this.setState({
-                        client: response
+                        client: response,
                     });
                 }
             })
@@ -45,20 +45,18 @@ class AdminPanel extends Component{
         const firstClientId = client.map(c => {
                 return c.id
         });
-        //const firstId = this.state.client[0];
-        console.log(client);
         console.log(firstClientId[0]);
         return (
             <div id="admin-panel-wraper">
               <h2>Dodaj lekarza</h2>
-                <form>
-                    <Combobox
+                <form onSubmit={() => {addDoctor(selectedUserId, doctorName, doctorSurname, doctorSecialization, doctorTitle); window.location.reload(false)}}>
+                    <DropdownList
                         data={client}
                         valueField='id'
                         textField={'name'}
                         defaultValue={firstClientId[0]}
                         required
-                        onChange={value => {selectedUserId = value.user.id; console.log(value.user.id)}}
+                        onChange={value => {selectedUserId = value.user.id}}
                     />
                     <input placeholder="Imię" name="docname" required onChange={(event) => {doctorName = event.target.value}}></input>
                     <br></br>
@@ -68,8 +66,9 @@ class AdminPanel extends Component{
                     <br></br>
                     <input placeholder="Tytuły" required onChange={(event) => {doctorTitle= event.target.value}}></input>
                     <br></br>
+                    <input type="submit" value="Stwórz leakrza"></input>
                 </form>
-                <button onClick={() => {addDoctor(selectedUserId, doctorName, doctorSurname, doctorSecialization, doctorTitle); window.location.reload(false)}}>Stwórz lekarza</button>
+                {/* <button onClick={() => {addDoctor(selectedUserId, doctorName, doctorSurname, doctorSecialization, doctorTitle); window.location.reload(false)}}>Stwórz lekarza</button> */}
             </div>
         );
     }
