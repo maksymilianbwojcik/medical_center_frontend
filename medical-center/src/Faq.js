@@ -34,7 +34,6 @@ class Faq extends Component{
         console.log(this.state.data);
         return (
             <div id="faq-wrapper">
-
                 <div><span className="arrow-down"></span></div>
                 <div className="title">NAJCZĘŚCIEJ ZADAWANE PYTANIA</div>
                 <br></br>

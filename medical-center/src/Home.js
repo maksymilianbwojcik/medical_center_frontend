@@ -43,7 +43,7 @@ class Home extends Component{
             </div>
 
             <div id="portfolio">
-
+                <div><span className="arrow-down"></span></div>
                 <div className="title">
                     <h2>Plan Budynku</h2></div>
                     <img className="current_item" className="image image-full" src="images/Niski%20Parter.png" alt="" height="auto" width="auto" />
