@@ -17,13 +17,13 @@ class Home extends Component{
                     <div className="title">
                     <h2>Nasz zespół</h2>
                     </div>
-                    <p>Zespół MediScrubs tworzą osoby z wysokimi kwalifikacjami w swojej dziedzinie i ponadprzeciętnym zaangażowaniem w pracę. W nasze usługi wkładamy wiedzę, doświadczenie i profesjonalizm.</p>
+                    <p>Zespół MediShield tworzą osoby z wysokimi kwalifikacjami w swojej dziedzinie i ponadprzeciętnym zaangażowaniem w pracę. W nasze usługi wkładamy wiedzę, doświadczenie i profesjonalizm.</p>
                     <a href="/doctors" className="button">Zobacz więcej</a> </div>
                 <div id="tbox3"> <span className="icon icon-hospital"></span>
                     <div className="title">
                         <h2>Rejestracja online</h2>
                     </div>
-                    <p>System rejestracji MediScrubs pozwala na sprawne zaplanowanie wizyty, odebranie wyników oraz recept. </p>
+                    <p>System rejestracji MediShield pozwala na sprawne zaplanowanie wizyty, odebranie wyników oraz recept. </p>
                     <a href="/login" className="button">Zobacz więcej</a> </div>
             </div>
 
@@ -34,11 +34,11 @@ class Home extends Component{
                 <br></br>
                 <div id="box1">
                     <p>Wykonujemy badania poziomu  <br></br>przeciwciał przeciw SARS-CoV-2<br></br>metodą ilościową</p> <br></br>
-                    <a href="#" className="button">Zobacz więcej</a> 
+                    <a href="/news" className="button">Zobacz więcej</a> 
                 </div>
                 <div id="box2">
                 <p>Zmiana godzin funkcjonowania  <br></br>przychodni od dnia <br></br> 4.06.2020 </p><br></br>
-                    <a href="#" className="button">Zobacz więcej</a> 
+                    <a href="/news" className="button">Zobacz więcej</a> 
                 </div>
             </div>
 
