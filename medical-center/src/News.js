@@ -35,7 +35,7 @@ class News extends Component{
     render(){
         console.log(this.state.data);
         return (
-            <div id="news-wraper">
+            <div id="news-wrapper">
                 {this.state.data.map(news =>
                     <NewsDetails info={news}/>)}
             </div>

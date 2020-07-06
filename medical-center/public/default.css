@@ -1079,6 +1079,43 @@
 	border-top-color: #292929 !important;
 }
 
+	/*********************************************************************************/
+	/* News-wrapper				                                                     */
+	/*********************************************************************************/
+
+	#news-wrapper{
+		text-align: left;
+		color: #00A4D9;
+		font-weight: 300;
+	}
+
+	#news-wrapper .title{
+		font-size: 50px;
+		font-weight: 600;
+		padding: 1em 0em;
+		color: #808080;
+		letter-spacing: 0.20em;
+		text-align: center;
+		text-transform: uppercase;
+	}
+
+	#news-wrapper .date{
+		font-size: 20px;
+		text-align: right;
+		font-weight: 700;
+	}
+
+	#news-wrapper .text{
+		font-size: 20px;
+		color: #0f0f0a;
+		letter-spacing: 0.5px;
+	}
+
+
+	#news-wrapper .arrow-down {
+		border-top-color: #292929 !important;
+	}
+
 .arrow-down {
 	margin: 0 auto;
 	width:0;
