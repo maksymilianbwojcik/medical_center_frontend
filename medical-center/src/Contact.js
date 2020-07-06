@@ -7,7 +7,7 @@ class Contact extends Component{
             <div id="faq-wrapper">
             <div><span className="arrow-down"></span></div>
             <div id="page">
-                <div className="title"><h3>KONTAKT</h3><div className="byline"><h5>POniżej znajdziesz lokalizację naszej kliniki oraz drogi kontaktu. Zanim skontaktujesz się z nami, odwiedź zakładkę "FAQ", aby sprawdzić czy nie odpowiedzieliśmy już na interesujące Cię pytania </h5></div></div>
+                <div className="title"><h3>KONTAKT</h3><div className="byline"><h5><strong>Poniżej znajdziesz lokalizację naszej kliniki oraz drogi kontaktu. Zanim skontaktujesz się z nami, odwiedź zakładkę "FAQ", aby sprawdzić czy nie odpowiedzieliśmy już na interesujące Cię pytania </strong></h5></div></div>
                         <br></br>
                 <div id="box1">
                     <iframe

@@ -47,8 +47,12 @@ class DoctorInfo extends Component{
                 <div id="doctor-info-wrapper">
                  <div><span className="arrow-down"/></div>
                  <br/><br/>
-                 <div id="box1"><span><img className= "doctor-info-img" src="images/img_avatar.png" alt="" height="auto" width="auto"/></span></div>
-                    <h1>{this.state.data.title}</h1><h2>{this.state.data.name + " " + this.state.data.surname}<br/><span className="byline">{ this.state.data.specialization}</span></h2>
+                 <div id="box1"><span><img className= "doctor-info-img" src="../images/img_avatar.png" alt="" height="auto" width="auto"/></span></div>
+                    <h1>{this.state.data.title}</h1>
+                    <h2>{this.state.data.name + " " + this.state.data.surname}
+                    <br/>
+                    <span className="byline">{ this.state.data.specialization}</span>
+                    </h2>
                     <hr className="new1"/>
                     <br/>
                     <h4>Aby umówić się na wizytę z naszym specjalistą, upewnij się, że jesteś zarejestrowany oraz zalogowany w naszym systemie. Poniżej znajdziesz dostępne terminy, w jakich przyjmuje wybrany specjalista. <br/> Aby zarezerwować wybrany termin - kliknij na jedną z poniższych pozycji:</h4>

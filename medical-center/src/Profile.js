@@ -73,28 +73,30 @@ class Profile extends Component {
             <div id="profile">
                 {
                     this.state.user ? (
-                        <div className="user-profile">
-                            <div className="user-details">
-                                <div className="user-avatar">
-                                    <Avatar className="user-avatar-circle" style={{ backgroundColor: getAvatarColor(this.state.user.name)}}>
-                                        {this.state.user.name[0].toUpperCase()}
-                                    </Avatar>
-                                </div>
-                                <div className="user-summary">
-                                    <div className="full-name">{this.state.user.name}</div>
-                                    <div className="username">@{this.state.user.username}</div>
-                                    <div className="user-joined">
-                                        Joined {formatDate(this.state.user.joinedAt)}
-                                    </div>
-
+                    <div id="page">
+                        <div id="profile-info-wrapper">
+                        <div><span className="arrow-down"/></div>
+                        <br/><br/><br/><br/>
+                        <div id="box1">
+                            <p data-letters={this.state.user.name[0].toUpperCase()}></p></div>
+                            <div id="box2"><div className="user-summary">
+                                <h2>{this.state.user.name}</h2>
+                                <div className="username"><h1>@{this.state.user.username}</h1></div>
+                                <div className="user-details">
+                                <br/>
+                                        <strong>Joined:</strong> {formatDate(this.state.user.joinedAt)}
                                     <div className="user-role">
                                         {console.log(this.state.user)}
-                                        Client: {this.state.user.client}
-                                        Doctor: {this.state.user.doctor}
+                                        <strong>Client:</strong> {this.state.user.client}<br/>
+                                        <strong>Doctor:</strong> {this.state.user.doctor}      
                                     </div>
-                                </div>
+                                    </div>
+                                </div><br/>
+                                <hr className="new1"/>
+                                <br/>
+                                <h3>Aby umówić się na wizytę, przejdz do sekcji "Nasi lekarze"</h3>
                             </div>
-
+                            </div>
                         </div>
                     ): null
                 }

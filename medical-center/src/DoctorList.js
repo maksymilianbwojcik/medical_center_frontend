@@ -32,11 +32,14 @@ class DoctorList extends Component{
         //todo dont show if not client
         return (
             <div id="page">
+                <div id="faq-wrapper">
+                <div><span className="arrow-down"></span></div></div>
                 <div className="title">
                     <br></br>
                     <h2>Nasi lekarze</h2>
 
-            <div className="title"></div><span className="byline">Zespół MediShield tworzą osoby z wysokimi kwalifikacjami w swojej dziedzinie i ponadprzeciętnym zaangażowaniem w pracę. Codziennie spotykamy się z ludźmi, którzy cierpią i nasze kontakty z nimi opierają się na słuchaniu i rozumieniu. Wkładamy w naszą pracę wiedzę, doświadczenie i serce.</span><br></br><br></br><span className="byline"><strong>Kliknij na pozycję z listy, aby umówić się na wizytę z wybranym lekarzem:</strong></span><br></br><br></br></div>
+            <span className="byline">Zespół MediShield tworzą osoby z wysokimi kwalifikacjami w swojej dziedzinie i ponadprzeciętnym zaangażowaniem w pracę. Codziennie spotykamy się z ludźmi, którzy cierpią i nasze kontakty z nimi opierają się na słuchaniu i rozumieniu. Wkładamy w naszą pracę wiedzę, doświadczenie i serce.</span><br></br><br></br><span className="byline"><strong>Kliknij na pozycję z listy, aby umówić się na wizytę z wybranym lekarzem:</strong></span><br></br><br></br>
+            </div>
                 <div id="doctor-wrapper">
                 <div><span className="arrow-down"></span></div>
                 <br></br>
