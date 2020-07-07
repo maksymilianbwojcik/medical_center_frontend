@@ -144,7 +144,7 @@ class App extends Component {
                             )}
                             <Route path="/contact" component={Contact}/>
                             <Route path="/users/:username"
-                                   render={(props) => <Profile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} {...props}  />}>
+                                   render={(props) => <Profile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} client={this.state.client} {...props}  />}>
                             </Route>
                             
                             { this.state.doctor != true && (

@@ -30,8 +30,9 @@ class CustomMenu extends Component{
                     <div className="dropdown">
                         <Icon type="user" className="nav-icon" style={{marginRight: 0}} /> <Icon type="down" />
                         <div className="dropdown-content">
-                            <Link to={`/users/${this.props.currentUser.username}`}>Profil</Link>
-
+                            { this.state.admin != true && (
+                                <Link to={`/users/${this.props.currentUser.username}`}>Profil</Link>
+                            )}
                             {(this.props.currentUser.client == true || this.props.currentUser.doctor == true) &&
                             (
                                 <Link to={`/usertimetable`}>Terminarz</Link>
@@ -64,7 +65,7 @@ class CustomMenu extends Component{
             <div id="menu" className="container">
                 <ul>
                     <li><Link to="/">Strona główna</Link></li>
-                    { this.state.doctor != true && (
+                    { ( this.state.doctor != true && this.state.admin != true )&& (
                         <li><Link to="/doctors">Nasi lekarze</Link></li>
                     )}
                     <li><Link to="/news">Aktualności</Link></li>

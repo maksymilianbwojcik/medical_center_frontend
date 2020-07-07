@@ -14,7 +14,8 @@ class Profile extends Component {
         super(props);
         this.state = {
             user: null,
-            isLoading: false
+            isLoading: false,
+            client: props.client
         }
         this.loadUserProfile = this.loadUserProfile.bind(this);
     }
@@ -93,7 +94,9 @@ class Profile extends Component {
                                 </div><br/>
                                 <hr className="new1"/>
                                 <br/>
-                                <h3>Aby umówić się na wizytę, przejdz do sekcji "Nasi lekarze"</h3>
+                                {this.state.client == true && (
+                                    <h3>Aby umówić się na wizytę, przejdz do sekcji "Nasi lekarze"</h3>
+                                )}
                             </div>
                             </div>
                         </div>
