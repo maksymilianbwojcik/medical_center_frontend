@@ -163,3 +163,15 @@ export function getAllResults() {
         method: 'GET'
     })
 }
+
+//Timetable
+export function addResult(resultText, timetableId) {
+    return request({
+        url: API_BASE_URL + '/results/addResult',
+        method: 'POST',
+        body: JSON.stringify({
+            "resultText": resultText,
+            "timetableId": timetableId,
+        })
+    })
+}

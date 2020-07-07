@@ -6,7 +6,8 @@ class UserTimetable extends Component{
     _isMounted = false;
 
     state = {
-            data: [],
+        data: [],
+        doctor: this.props.doctor
     }
 
     componentDidMount() {
@@ -38,7 +39,7 @@ class UserTimetable extends Component{
                 <a href={'/results'}>Moje wyniki</a>
 
                 {this.state.data.map(timetable =>
-                    <Timetable info={timetable}/>)}
+                    <Timetable key={timetable.id} info={timetable} doctor={this.state.doctor}/>)}
             </div>
         );
     }

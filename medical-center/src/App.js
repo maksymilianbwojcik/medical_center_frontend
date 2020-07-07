@@ -110,7 +110,6 @@ class App extends Component {
 */
 
     render() {
-        console.log(this.state.currentUser);
         if(this.state.isLoading) {
             return <LoadingIndicator />
         }
@@ -134,7 +133,7 @@ class App extends Component {
                             <Route path="/signup" component={Signup}/>
                             <Route path="/" exact component={Home}/>
                             <Route path="/faq" component={Faq}/>
-                            <Route path="/usertimetable" component={UserTimetable}/>
+                            <Route path="/usertimetable" component={UserTimetable} doctor={this.state.doctor}/>
                             <Route path="/doctors" component={DoctorList}/>
                             <Route path="/news" component={News}/>
                             <Route path="/results" component={Result}/>
