@@ -16,8 +16,8 @@ class Contact extends Component{
                 </div>
                 <div id="box2">
                     <h4>
-                    <div><br></br> <p><br></br>ul. Josefa Mengele 1<br></br>11-111 Twin Peaks<br></br>
-                        +48 11 111 11 11<br></br>twinpeaks@klinikascrubs.pl</p>
+                    <div><br></br> <p><br></br>ul. Piastowska 15<br></br>11-741 Pcim Dolny<br></br>
+                        +48 12 345 167 89<br></br>kontakt@klinikascrubs.pl</p>
                     </div>
                     </h4>
                 </div>

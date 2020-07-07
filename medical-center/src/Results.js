@@ -33,8 +33,8 @@ class Result extends Component{
     render(){
         console.log(this.state.data)
         return (
-            <div>
-                <h3>Wszystkie wyniki</h3>
+            <div id={'page'}>
+                <h3 className={'visit'}>Wszystkie wyniki</h3>
 
                 {this.state.data.map(result =>
                     <SingleResult info={result}/>)}
