@@ -85,10 +85,9 @@ class Profile extends Component {
                                 <div className="user-details">
                                 <br/>
                                         <strong>Joined:</strong> {formatDate(this.state.user.joinedAt)}
-                                    <div className="user-role">
-                                        {console.log(this.state.user)}
-                                        <strong>Client:</strong> {this.state.user.client}<br/>
-                                        <strong>Doctor:</strong> {this.state.user.doctor}      
+                                    <div className="user-role">                           
+                                        {/* <strong>Client:</strong> {this.state.user.client}<br/>
+                                        <strong>Doctor:</strong> {this.state.user.doctor}       */}
                                     </div>
                                     </div>
                                 </div><br/>

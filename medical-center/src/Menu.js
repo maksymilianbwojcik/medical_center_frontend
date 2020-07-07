@@ -17,7 +17,8 @@ class CustomMenu extends Component{
 
         this.state = {
             client: props.client,
-            doctor: props.doctor
+            doctor: props.doctor,
+            admin: props.admin
         }
     }
 

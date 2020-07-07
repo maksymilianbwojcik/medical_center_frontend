@@ -126,6 +126,7 @@ class App extends Component {
                                     currentUser={this.state.currentUser}
                                     client={this.state.client}
                                     doctor={this.state.doctor}
+                                    admin={this.state.admin}
                                     onLogout={this.handleLogout} />
 
                         <Switch>
@@ -133,7 +134,7 @@ class App extends Component {
                             <Route path="/signup" component={Signup}/>
                             <Route path="/" exact component={Home}/>
                             <Route path="/faq" component={Faq}/>
-                            <Route path="/usertimetable" component={UserTimetable} doctor={this.state.doctor}/>
+                            <Route path="/usertimetable" render={(props)=><UserTimetable doctor={this.state.doctor} {...props} />}/>
                             <Route path="/doctors" component={DoctorList}/>
                             <Route path="/news" component={News}/>
                             <Route path="/results" component={Result}/>

@@ -66,7 +66,7 @@ class AdminPanel extends Component{
                     <br></br>
                     <input placeholder="Tytuły" required onChange={(event) => {doctorTitle= event.target.value}}></input>
                     <br></br>
-                    <input type="submit" value="Stwórz leakrza"></input>
+                    <input type="submit" value="Stwórz lekarza"></input>
                 </form>
                 {/* <button onClick={() => {addDoctor(selectedUserId, doctorName, doctorSurname, doctorSecialization, doctorTitle); window.location.reload(false)}}>Stwórz lekarza</button> */}
             </div>

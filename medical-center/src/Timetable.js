@@ -9,10 +9,11 @@ class Timetable extends Component{
 
         this.state ={
             reasultText: "",
-            doctor: this.props.doctor
+            doctor: props.doctor
         }
     }
     render(props){
+        console.log(this.state.doctor);
         return (
             <div>
                 <div id="page">

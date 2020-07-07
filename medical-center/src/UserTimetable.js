@@ -3,12 +3,14 @@ import { getUserTimetable } from './utils/APIUtils';
 import Timetable from "./Timetable";
 
 class UserTimetable extends Component{
-    _isMounted = false;
-
-    state = {
-        data: [],
-        doctor: this.props.doctor
+    constructor(props){
+        super(props)
+        this.state = {
+            data: [],
+            doctor: props.doctor
+        }
     }
+    _isMounted = false;
 
     componentDidMount() {
         this._isMounted = true;
@@ -32,11 +34,17 @@ class UserTimetable extends Component{
     }
 
     render(){
-        console.log(this.state.data)
+        console.log(this.state.doctor);
         return (
             <div id="page">
                 <h3 className="visit" >Wizyty</h3>
-                <a href={'/results'} className="button">Moje wyniki</a><br></br>
+                {this.state.doctor != true && (
+                    <span><a href={'/results'} className="button">Moje wyniki</a><br></br></span>
+                )}
+
+                {this.state.doctor == true && (
+                    <span><a href={'/results'} className="button">Wystawione wyniki</a><br></br></span>
+                )}
 
                 {this.state.data.map(timetable =>
                     <Timetable key={timetable.id} info={timetable} doctor={this.state.doctor}/>)}
