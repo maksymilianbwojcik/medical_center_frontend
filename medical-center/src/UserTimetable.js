@@ -34,9 +34,9 @@ class UserTimetable extends Component{
     render(){
         console.log(this.state.data)
         return (
-            <div>
-                <h3>Wizyty</h3>
-                <a href={'/results'}>Moje wyniki</a>
+            <div id="page">
+                <h3 className="visit" >Wizyty</h3>
+                <a href={'/results'} className="button">Moje wyniki</a><br></br>
 
                 {this.state.data.map(timetable =>
                     <Timetable key={timetable.id} info={timetable} doctor={this.state.doctor}/>)}

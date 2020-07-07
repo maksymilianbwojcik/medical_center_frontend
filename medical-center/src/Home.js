@@ -12,7 +12,7 @@ class Home extends Component{
                     <div className="title"> <h2>Zakres usług</h2>
                     </div>
                     <p>Podstawowa opieka zdrowotna, specjalistyka, rehabilitacja, medycyna pracy, badania laboratoryjne, rtg, inne.</p>    
-                    <a href="/about" className="button">Zobacz więcej</a> </div>
+                    <a href="#portfolio" className="button">Zobacz więcej</a> </div>
                 <div id="tbox2"> <span className="icon icon-user-md"></span>
                     <div className="title">
                     <h2>Nasz zespół</h2>
@@ -53,9 +53,9 @@ class Home extends Component{
             <div id="portfolio">
                     <div className="title">
                         <h2>MASZ PYTANIE?</h2><br></br><br></br>
-                        <span className="byline">Przejdź do sekcji Najczęstszych Pytań lub skontaktuj się z nami:</span> 
-                    <div><br></br> <p><strong>KONTAKT:</strong><br></br>ul. Josefa Mengele 1<br></br>11-111 Twin Peaks<br></br>
-                        +48 11 111 11 11<br></br>twinpeaks@klinikascrubs.pl</p>
+                        <span className="byline">Przejdź do sekcji Najczęstszych Pytań lub skontaktuj się z nami:</span>
+                        <div><br></br> <p><br></br>ul. Piastowska 15<br></br>11-741 Pcim Dolny<br></br>
+                            +48 12 345 167 89<br></br>kontakt@klinikascrubs.pl</p>
                     </div>
                     
                     <a href="/faq" className="button">FAQ</a><br></br></div>
