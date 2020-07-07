@@ -29,11 +29,11 @@ class CustomMenu extends Component{
                     <div className="dropdown">
                         <Icon type="user" className="nav-icon" style={{marginRight: 0}} /> <Icon type="down" />
                         <div className="dropdown-content">
-                            <Link to={`/users/${this.props.currentUser.username}`}>Profile</Link>
+                            <Link to={`/users/${this.props.currentUser.username}`}>Profil</Link>
 
                             {(this.props.currentUser.client == true || this.props.currentUser.doctor == true) &&
                             (
-                                <Link to={`/usertimetable`}>Timetable</Link>
+                                <Link to={`/usertimetable`}>Terminarz</Link>
                             )}
 
                             { this.props.currentUser.admin== true && (
