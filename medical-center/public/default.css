@@ -391,13 +391,15 @@
 	{
 		float: left;
 		width: 500px;
+        text-align: center;
 	}
 
 	#page #box2
 	{
 		float: right;
 		width: 500px;
-	}
+        text-align: center;
+    }
 	
 	#page a
 	{
@@ -982,7 +984,9 @@
 	.dropdown:hover .dropbtn {
 		background-color: #3e8e41;
 	}
-/*********************************************************************************/
+    
+
+    /*********************************************************************************/
 /* timetable-element-wrapper                                                                */
 /*********************************************************************************/
 
@@ -1255,3 +1259,51 @@
 		color:white;
 		border: 6px solid #00A4D9;
 		}
+
+    #admin-panel-wraper
+    {
+        overflow: hidden;
+        width: 1100px;
+        padding: 0em 50px 5em 50px;
+        background: #F4F4F4;
+        color: #191919;
+    }
+
+    #admin-panel-wraper .title
+    {
+        text-align: left;
+        font-size: 50px;
+        font-weight: 600;
+        padding: 10px 20px 10px 20px;
+        margin-top: 25px;
+        width: 350px;
+        height: 75px;
+        color: #0099cc;
+        border: solid 5px #0099cc;
+        border-radius: 15px;
+    }
+
+    #admin-panel-wraper .list
+    {
+        margin: 20px 0px;
+        width: 400px;
+        border: double 2px #0099cc;
+    }
+
+    #admin-panel-wraper input
+    {
+        width: 396px;
+        border: solid 1px #0099cc;
+        margin: 5px 0px;
+    }
+    #admin-panel-wraper .button
+    {
+        background-color: #0099cc;
+        border: none;
+        color: white;
+
+        padding: 8px 16px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+    }

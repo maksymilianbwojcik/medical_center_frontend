@@ -48,9 +48,9 @@ class AdminPanel extends Component{
         console.log(firstClientId[0]);
         return (
             <div id="admin-panel-wraper">
-              <h2>Dodaj lekarza</h2>
-                <form onSubmit={() => {addDoctor(selectedUserId, doctorName, doctorSurname, doctorSecialization, doctorTitle); window.location.reload(false)}}>
-                    <DropdownList
+              <h2 className="title">Dodaj lekarza</h2>
+                <form  onSubmit={() => {addDoctor(selectedUserId, doctorName, doctorSurname, doctorSecialization, doctorTitle); window.location.reload(false)}}>
+                    <DropdownList className="list"
                         data={client}
                         valueField='id'
                         textField={'name'}
@@ -66,7 +66,7 @@ class AdminPanel extends Component{
                     <br></br>
                     <input placeholder="Tytuły" required onChange={(event) => {doctorTitle= event.target.value}}></input>
                     <br></br>
-                    <input type="submit" value="Stwórz lekarza"></input>
+                    <input className="button" type="submit" value="Stwórz lekarza"></input>
                 </form>
                 {/* <button onClick={() => {addDoctor(selectedUserId, doctorName, doctorSurname, doctorSecialization, doctorTitle); window.location.reload(false)}}>Stwórz lekarza</button> */}
             </div>
