@@ -150,6 +150,19 @@ export function addDoctor(id, name, surname, specialization, title) {
     })
 }
 
+export function addAppointment(id, start, end, freq) {
+    return request({
+        url: API_BASE_URL + '/timetable/createAppointments',
+        method: 'POST',
+        body: JSON.stringify({
+            "date": start,
+            "doctor": id,
+            "frequency": freq,
+            "tillDate": end
+        })
+    })
+}
+
 export function getAllClients() {
     return request({
         url: API_BASE_URL + "/clients/all",

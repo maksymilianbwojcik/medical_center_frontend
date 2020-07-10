@@ -1,13 +1,16 @@
 import React, {Component} from 'react';
-import {getAllClients, addDoctor} from './utils/APIUtils';
+import {getAllClients, addDoctor, addAppointment, getAllDoctors} from './utils/APIUtils';
 import 'react-widgets/dist/css/react-widgets.css';
 import DropdownList from 'react-widgets/lib/DropdownList'
+import DateTimePicker from 'react-datetime-picker';
+
 
 class AdminPanel extends Component{
     _isMounted = false;
 
     state = {
-        client: []
+        client: [],
+        doctor: []
     }
 
     componentDidMount() {
@@ -18,6 +21,18 @@ class AdminPanel extends Component{
                 if(this._isMounted === true) {
                     this.setState({
                         client: response,
+                    });
+                }
+            })
+            .catch(error => {
+                console.log(error);
+        });
+
+        getAllDoctors()
+            .then(response => {
+                if(this._isMounted === true) {
+                    this.setState({
+                        doctor: response,
                     });
                 }
             })
@@ -40,12 +55,21 @@ class AdminPanel extends Component{
         let doctorTitle;
         let doctorSecialization;
         let selectedUserId;
+        let selectedDoctorId;
+
+        let startDate;
+        let endDate;
 
         const client = this.state.client;
         const firstClientId = client.map(c => {
                 return c.id
         });
-        console.log(firstClientId[0]);
+
+        const doctor = this.state.doctor;
+        const firstDoctorId = doctor.map(d => {
+            return d.id
+        });
+        console.log(doctor[0]);
         return (
             <div id="admin-panel-wraper">
               <h2 className="title">Dodaj lekarza</h2>
@@ -68,7 +92,28 @@ class AdminPanel extends Component{
                     <br></br>
                     <input className="button" type="submit" value="Stwórz lekarza"></input>
                 </form>
-                {/* <button onClick={() => {addDoctor(selectedUserId, doctorName, doctorSurname, doctorSecialization, doctorTitle); window.location.reload(false)}}>Stwórz lekarza</button> */}
+                <div class="add-appointment-wrapper">
+                    <p>Cykliczne dodawanie wizyty</p>
+                    <DropdownList className="list"
+                        data={doctor}
+                        valueField='id'
+                        textField={'name'}
+                        defaultValue={firstDoctorId[0]}
+                        required
+                        onChange={value => {selectedDoctorId = value.user.id}}
+                    />
+                    <p>Data rozpoczęcia:</p>
+                    <DateTimePicker required
+                        onChange={value => {startDate = value}}
+                        value={this.state.date}
+                    />
+                    <p>Data zakończenia:</p>
+                    <DateTimePicker required
+                        onChange={value => {endDate = value}}
+                        value={this.state.date}
+                    />
+                    <button onClick={()=>{addAppointment(selectedUserId, startDate, endDate, "month")}}>Dodaj wizyty</button>
+                </div>
             </div>
         );
     }
