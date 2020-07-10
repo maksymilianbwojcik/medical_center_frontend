@@ -399,6 +399,13 @@
 		float: right;
 		width: 500px;
         text-align: center;
+	}
+	
+	#page #box3
+	{
+		width: 500px;
+		text-align: center;
+		padding-left: 220px;
     }
 	
 	#page a
@@ -1283,6 +1290,20 @@
         border-radius: 15px;
     }
 
+	#admin-panel-wraper .title1
+    {
+        text-align: left;
+        font-size: 30px;
+        font-weight: 600;
+        padding: 10px 20px 10px 20px;
+        margin-top: 25px;
+        width: 350px;
+        height: 75px;
+        color: #0099cc;
+        border: solid 5px #0099cc;
+        border-radius: 15px;
+	}
+	
     #admin-panel-wraper .list
     {
         margin: 20px 0px;
@@ -1306,4 +1327,39 @@
         text-decoration: none;
         margin: 4px 2px;
         cursor: pointer;
-    }
+	}
+
+	#admin-panel-wraper .arrow-down {
+		border-top-color: #292929 !important;
+	}
+
+	.arrow-down {
+		margin: 0 auto;
+		width:0;
+		height:0;
+		border-top: 40px solid #FFF;
+		border-left: 50px solid transparent;
+		border-right: 50px solid transparent;
+		display: block;
+		text-align: center;
+	}
+	
+	#add-appointment-wrapper
+	{
+		width: 500px;
+		padding-top: 0px;
+		float: right;
+	}
+
+	#add-appointment-wrapper .button
+	{
+		background-color: #0099cc;
+        border: none;
+        color: white;
+		width: 400px;
+        padding: 8px 16px;
+        text-decoration: none;
+        margin: 4px 2px;
+		cursor: pointer;
+	}
+

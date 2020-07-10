@@ -17,7 +17,7 @@ class Timetable extends Component{
         return (
             <div>
                 <div id="page">
-                    <div id="box1">
+                    <div id="box3">
                         <div className="title">
                             <p>
                                 {  moment(this.props.info.date).format('MMMM - D - YYYY h:mm:ss') }

@@ -6,7 +6,7 @@ class SingleResult extends Component{
         return (
             <div>
                 <div id="page">
-                    <div id="box1">
+                    <div id="box3">
                         <div className="title">
 
                             <p>

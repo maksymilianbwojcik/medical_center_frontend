@@ -37,11 +37,11 @@ class UserTimetable extends Component{
         console.log(this.state.doctor);
         return (
             <div id="page">
-                <h3 className="visit" >Wizyty</h3>
                 {this.state.doctor != true && (
                     <span><a href={'/results'} className="button">Moje wyniki</a><br></br></span>
                 )}
-
+                <h3 className="visit" >Wizyty</h3>
+                
                 {this.state.doctor == true && (
                     <span><a href={'/results'} className="button">Wystawione wyniki</a><br></br></span>
                 )}

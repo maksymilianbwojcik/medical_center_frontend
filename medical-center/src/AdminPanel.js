@@ -72,6 +72,7 @@ class AdminPanel extends Component{
         console.log(doctor[0]);
         return (
             <div id="admin-panel-wraper">
+              <div><span className="arrow-down"/></div>
               <h2 className="title">Dodaj lekarza</h2>
                 <form  onSubmit={() => {addDoctor(selectedUserId, doctorName, doctorSurname, doctorSecialization, doctorTitle); window.location.reload(false)}}>
                     <DropdownList className="list"
@@ -93,7 +94,8 @@ class AdminPanel extends Component{
                     <input className="button" type="submit" value="Stwórz lekarza"></input>
                 </form>
                 <div class="add-appointment-wrapper">
-                    <p>Cykliczne dodawanie wizyty</p>
+                    <br/>
+                    <h2 className="title1">Cykliczne dodawanie wizyty</h2>
                     <DropdownList className="list"
                         data={doctor}
                         valueField='id'
@@ -102,17 +104,18 @@ class AdminPanel extends Component{
                         required
                         onChange={value => {selectedDoctorId = value.user.id}}
                     />
-                    <p>Data rozpoczęcia:</p>
-                    <DateTimePicker required
+                    <h1>Data rozpoczęcia:</h1>
+                    <DateTimePicker required 
                         onChange={value => {startDate = value}}
                         value={this.state.date}
                     />
-                    <p>Data zakończenia:</p>
+                    <h1>Data zakończenia:</h1>
                     <DateTimePicker required
                         onChange={value => {endDate = value}}
                         value={this.state.date}
                     />
-                    <button onClick={()=>{addAppointment(selectedUserId, startDate, endDate, "month")}}>Dodaj wizyty</button>
+                    <br></br>
+                    <button class="button button1"onClick={()=>{addAppointment(selectedUserId, startDate, endDate, "month")}}>Dodaj wizyty</button>
                 </div>
             </div>
         );
